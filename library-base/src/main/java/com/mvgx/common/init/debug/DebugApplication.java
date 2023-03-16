@@ -1,4 +1,4 @@
-package com.mvgx.common.debug;
+package com.mvgx.common.init.debug;
 
 
 import com.mvgx.common.config.ModuleLifecycleConfig;

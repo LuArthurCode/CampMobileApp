@@ -1,14 +1,15 @@
-package com.mvgx.common.base;
+package com.mvgx.common.init.base;
 
 import android.app.Application;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.mvgx.common.BuildConfig;
+import com.mvgx.common.base.IModuleInit;
 import com.mvgx.common.init.utils.KLog;
 
 
 /**
- * Created by goldze on 2018/6/21 0021.
+ * 21.
  * 基础库自身初始化操作
  */
 

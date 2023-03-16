@@ -1,8 +1,8 @@
 package com.mvgx.campmobile;
 
 import com.mvgx.common.config.ModuleLifecycleConfig;
+import com.mvgx.common.init.base.BaseApplication;
 
-import me.goldze.mvvmhabit.base.BaseApplication;
 
 /**
  * @Author Arthur
