@@ -1,9 +1,11 @@
-package com.mvgx.campmobile;
+package com.mvgx.main.ui;
 
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.mvgx.main.R;
 
 /**
  * @Author Arthur
