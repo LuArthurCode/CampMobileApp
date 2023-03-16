@@ -1,7 +1,7 @@
 package com.mvgx.campmobile;
 
 import com.mvgx.common.config.ModuleLifecycleConfig;
-import com.mvgx.common.init.base.BaseApplication;
+import com.mvgx.common.base.BaseApplication;
 
 
 /**

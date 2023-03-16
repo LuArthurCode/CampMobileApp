@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">library-res</string>
+    <string name="login">Login</string>
+    <string name="login_name">Name</string>
+    <string name="login_password">Password</string>
+    <string name="login_code">Code</string>
+    <string name="main">main</string>
+    <string name="assets">assets</string>
+    <string name="home">home</string>
+    <string name="me">me</string>
+    <string name="trade">trade</string>
+</resources>

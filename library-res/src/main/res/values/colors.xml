@@ -18,4 +18,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="md_btn_selected">#33969696</color>
+    <color name="color_eb2">#00aeb2</color>
+    <color name="color_485">#408485</color>
 </resources>

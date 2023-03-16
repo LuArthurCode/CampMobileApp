@@ -2,7 +2,7 @@ package com.mvgx.common.init.http;
 
 
 import com.hjq.toast.ToastUtils;
-import com.mvgx.common.init.base.AppManager;
+import com.mvgx.common.base.AppManager;
 import com.mvgx.common.init.utils.KLog;
 import com.mvgx.common.init.utils.Utils;
 

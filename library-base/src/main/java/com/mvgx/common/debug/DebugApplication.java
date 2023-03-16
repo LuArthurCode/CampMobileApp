@@ -2,7 +2,7 @@ package com.mvgx.common.debug;
 
 
 import com.mvgx.common.config.ModuleLifecycleConfig;
-import com.mvgx.common.init.base.BaseApplication;
+import com.mvgx.common.base.BaseApplication;
 
 /**
  * Created by goldze on 2018/6/25 0025.

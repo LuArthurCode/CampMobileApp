@@ -82,8 +82,5 @@ ext {
             'NetStatus'                            : 'com.sunchen:netstatusbus:0.1.5',//网络监听
             //上划下拉加载刷新
             'RefreshView'                          : 'com.lcodecorex:tkrefreshlayout:1.0.7',
-
-            //MVVMHabit
-//            "MVVMHabit"        : "com.github.goldze:MVVMHabit:4.0.0",
     ]
 }
