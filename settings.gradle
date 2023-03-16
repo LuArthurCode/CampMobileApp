@@ -1,0 +1,27 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+        maven { url 'https://jitpack.io' }
+    }
+}
+rootProject.name = "CampMobile"
+include ':app'
+include ':library-base'
+include ':library-res'
+include ':module-home'
+include ':module-client'
+include ':module-trade'
+include ':module-assets'
+include ':module-me'
+include ':module-main'
