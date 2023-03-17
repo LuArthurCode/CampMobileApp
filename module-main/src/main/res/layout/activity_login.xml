@@ -18,22 +18,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
+            android:background="@color/color_default"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_weight="4"
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_0">
                 <ImageView
-                    android:layout_width="match_parent"
+
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="fitXY"
                     android:src="@mipmap/icon_login" />
             </LinearLayout>
 
             <LinearLayout
+                android:background="@drawable/shape_20_top_white_background_view"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="6"

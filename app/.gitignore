@@ -1,1 +1,4 @@
 /build
+/src/main/camp.jks
+/src/androidTest/
+/src/test/
