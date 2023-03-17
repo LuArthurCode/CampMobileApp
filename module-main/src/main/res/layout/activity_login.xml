@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:binding="http://schemas.android.com/apk/res-auto">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ResourceName">
 
     <data>
         <variable
@@ -11,6 +13,7 @@
 
     <androidx.core.widget.NestedScrollView
         android:fillViewport="true"
+        android:background="@color/white"
         android:fitsSystemWindows="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -26,6 +29,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
                     android:src="@mipmap/icon_login" />
             </LinearLayout>
 
@@ -162,12 +166,13 @@
                     android:layout_marginTop="@dimen/dp_40"
                     android:layout_marginBottom="@dimen/dp_20"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content">
                     <Button
                         android:id="@+id/login_btn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@{loginViewModel.onIsClickLogin == true? @drawable/shape_10_cyan_bg_click_view :@drawable/shape_10_cyan_bg_unclick_view}"
+                        android:clickable="false"
+                        android:background="@drawable/shape_10_cyan_bg_click_view"
                         android:foreground="?attr/selectableItemBackgroundBorderless"
                         android:text="@string/login"
                         android:textAllCaps="false"

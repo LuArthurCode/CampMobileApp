@@ -1,4 +1,5 @@
 package com.mvgx.common.init.utils;
+import com.gyf.immersionbar.BarHide;
 import com.gyf.immersionbar.ImmersionBar;
 import com.mvgx.common.R;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
@@ -44,6 +45,17 @@ public class ImmersionBarUtils {
                     .autoNavigationBarDarkModeEnable(true)
                     .keyboardEnable(keyboardEnable)
                     .navigationBarColor(color)
+                    .init();
+        }
+    }
+
+    public static void setHideBar(RxAppCompatActivity activity){
+        if (with == null){
+            ImmersionBar.with(activity)
+                    .fullScreen(true)
+                    .init();
+        }else {
+            with.fullScreen(true)
                     .init();
         }
     }

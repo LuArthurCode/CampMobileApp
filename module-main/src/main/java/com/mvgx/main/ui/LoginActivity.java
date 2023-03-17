@@ -33,6 +33,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding,LoginViewMo
     @Override
     public int initVariableId() {
         return BR.loginViewModel;
+
     }
 
 
