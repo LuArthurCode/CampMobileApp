@@ -1,4 +1,10 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--StartActivity Style 冷启动效果-->
+    <style name="AppTheme.Start" tools:ignore="ResourceName">
+        <item name="android:windowBackground">@drawable/activity_start</item>
+    </style>
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!--将ActionBar隐藏,这里使用ToolBar-->

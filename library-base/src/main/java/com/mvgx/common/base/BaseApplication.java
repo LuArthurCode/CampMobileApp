@@ -17,6 +17,11 @@ import me.jessyan.autosize.AutoSize;
 import me.jessyan.autosize.AutoSizeConfig;
 import me.jessyan.autosize.onAdaptListener;
 import me.jessyan.autosize.utils.AutoSizeLog;
+import skin.support.SkinCompatManager;
+import skin.support.app.SkinAppCompatViewInflater;
+import skin.support.app.SkinCardViewInflater;
+import skin.support.constraint.app.SkinConstraintViewInflater;
+import skin.support.design.app.SkinMaterialViewInflater;
 
 
 /**
@@ -36,9 +41,28 @@ public class BaseApplication extends Application {
         initAutoSize();
         //吐司的初始化
         initConfigInfo();
-
+        //换肤功能
+        initSkin();
 
     }
+
+    /**
+     * 换肤初始化
+     */
+    private void initSkin() {
+        SkinCompatManager.withoutActivity(this)
+//                .addStrategy(new CustomSDCardLoader())          // 自定义加载策略，指定SDCard路径
+//                .addStrategy(new ZipSDCardLoader())             // 自定义加载策略，获取zip包中的资源
+                .addInflater(new SkinAppCompatViewInflater())   // 基础控件换肤
+                .addInflater(new SkinMaterialViewInflater())    // material design
+                .addInflater(new SkinConstraintViewInflater())  // ConstraintLayout
+                .addInflater(new SkinCardViewInflater())        // CardView v7
+//                .setSkinStatusBarColorEnable(true)              // 关闭状态栏换肤
+//                .setSkinWindowBackgroundEnable(false)           // 关闭windowBackground换肤
+//                .setSkinAllActivityEnable(false)                // true: 默认所有的Activity都换肤; false: 只有实现SkinCompatSupportable接口的Activity换肤
+                .loadSkin();
+    }
+
 
 
     public void initAutoSize(){

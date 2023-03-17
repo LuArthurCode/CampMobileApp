@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
 
     <data>
             <variable
@@ -8,6 +9,7 @@
     </data>
 
     <LinearLayout
+        android:background="@color/color_background"
         android:gravity="center"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -17,10 +19,17 @@
             android:text="Home"
             android:gravity="center"
             android:textSize="@dimen/sp_20"
-            android:textColor="@color/black"
+            android:textColor="@color/main_text_color"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
         </TextView>
+
+
+        <Button
+            binding:onClickCommand="@{homeViewModel.onClickCommand}"
+            android:text="@string/app_change_skin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </Button>
     </LinearLayout>
 </layout>

@@ -4,10 +4,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -112,8 +109,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, BaseViewMode
     private BaseTabItem newItem(int drawable, int checkedDrawable, String text) {
         normalItemView = new NormalItemView(this);
         normalItemView.initialize(drawable, checkedDrawable, text);
-        normalItemView.setTextDefaultColor(Color.GRAY);
-        normalItemView.setTextCheckedColor(getColor(com.mvgx.res.R.color.color_eb2));
+        normalItemView.setTextDefaultColor(getColor(com.mvgx.res.R.color.navigation_item_tint));
+        normalItemView.setTextCheckedColor(getColor(com.mvgx.res.R.color.navigation_item_tint));
         return normalItemView;
     }
 }

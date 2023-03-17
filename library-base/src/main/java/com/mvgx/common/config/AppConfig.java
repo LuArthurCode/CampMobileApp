@@ -24,7 +24,9 @@ public class AppConfig {
 
     public static  boolean IS_LOGIN = false;
 
-    public static  String TOKEN = "";
+    public static String TOKEN = "";
+
+    public static final String BLACK = "black";
 
 
 }

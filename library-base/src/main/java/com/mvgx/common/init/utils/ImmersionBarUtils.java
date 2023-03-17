@@ -16,14 +16,14 @@ public class ImmersionBarUtils {
                     .statusBarColor(barColor)
                     .fitsSystemWindows(true)
                     .autoNavigationBarDarkModeEnable(true)
-                    .navigationBarColor(R.color.white)
+                    .navigationBarColor(com.mvgx.res.R.color.white)
                     .init();
         }else {
             with.statusBarDarkFont(isDarkFont,0.2f)
                     .statusBarColor(barColor)
                     .fitsSystemWindows(true)
                     .autoNavigationBarDarkModeEnable(true)
-                    .navigationBarColor(R.color.white)
+                    .navigationBarColor(com.mvgx.res.R.color.white)
                     .init();
         }
     }

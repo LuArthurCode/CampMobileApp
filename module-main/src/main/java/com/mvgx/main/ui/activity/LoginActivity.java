@@ -67,7 +67,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding,LoginViewMo
     @Override
     public void initData() {
         super.initData();
-        initViewBar(com.mvgx.res.R.color.white);
+        initViewBar(com.mvgx.res.R.color.color_default);
         binding.etPassword.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}

@@ -7,6 +7,7 @@ import android.os.Handler;
 
 import androidx.annotation.Nullable;
 
+import com.gyf.immersionbar.ImmersionBar;
 import com.mvgx.main.ui.activity.LoginActivity;
 
 /**
@@ -15,7 +16,9 @@ import com.mvgx.main.ui.activity.LoginActivity;
  * @Date 2023/03/16 11:47
  */
 public class SplashActivity  extends Activity {
+
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        ImmersionBar.with(this).transparentBar().init();
         super.onCreate(savedInstanceState);
         new Handler().postDelayed(new Runnable() {
             @Override

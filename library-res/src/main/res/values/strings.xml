@@ -11,4 +11,6 @@
     <string name="app_item_me">me</string>
     <string name="app_item_wallet">wallet</string>
     <string name="app_item_trade">trade</string>
+
+    <string name="app_change_skin">Change Skin</string>
 </resources>
