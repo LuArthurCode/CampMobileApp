@@ -9,8 +9,7 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.mvgx.common.http.Repository;
-import com.mvgx.main.app.Injection;
-import com.mvgx.main.ui.LoginViewModel;
+import com.mvgx.main.ui.viewmodel.LoginViewModel;
 
 /**
  * Created by goldze on 2019/3/26.

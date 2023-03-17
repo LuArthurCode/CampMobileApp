@@ -7,21 +7,25 @@ package com.mvgx.common.config;
  */
 
 public class ModuleLifecycleReflexs {
-    private static final String BaseInit = "com.goldze.base.base.BaseModuleInit";
+    private static final String BaseInit = "com.mvgx.common.base.BaseModuleInit";
     //主业务模块
-    private static final String MainInit = "com.goldze.main.MainModuleInit";
+    private static final String MainInit = "com.mvgx.main.MainModuleInit";
     //登录验证模块
     private static final String SignInit = "com.goldze.sign.SignModuleInit";
     //首页业务模块
-    private static final String HomeInit = "com.goldze.home.HomeModuleInit";
-    //工作业务模块
-    private static final String WorkInit = "com.goldze.work.WorkModuleInit";
-    //消息业务模块
-    private static final String MsgInit = "com.goldze.msg.MsgModuleInit";
-    //用户业务模块
-    private static final String UserInit = "com.goldze.user.UserModuleInit";
-    //任务业务模块
-    private static final String MaskInit = "com.goldze.mask.MaskModuleInit";
+    private static final String HomeInit = "com.mvgx.home.HomeModuleInit";
 
-    public static String[] initModuleNames = {BaseInit, MainInit,SignInit, HomeInit, WorkInit, MsgInit,UserInit,MaskInit};
+    //我的业务模块
+    private static final String MeInit = "com.mvgx.me.MeModuleInit";
+
+    //用户业务模块
+    private static final String ClientInit = "com.mvgx.client.ClientModuleInit";
+
+    //资产业务模块
+    private static final String AssetsInit = "com.mvgx.assets.AssetsModuleInit";
+
+    //交易业务模块
+    private static final String TradeInit = "com.mvgx.trade.TradeModuleInit";
+
+    public static String[] initModuleNames = {BaseInit, MainInit,SignInit, HomeInit, ClientInit, AssetsInit, MeInit, TradeInit};
 }

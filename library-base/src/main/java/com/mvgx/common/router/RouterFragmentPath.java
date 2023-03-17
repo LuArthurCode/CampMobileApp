@@ -8,7 +8,7 @@ package com.mvgx.common.router;
 
 public class RouterFragmentPath {
     /**
-     * 首页组件
+     * Home组件
      */
     public static class Home {
         private static final String HOME = "/home";
@@ -17,37 +17,37 @@ public class RouterFragmentPath {
     }
 
     /**
-     * 工作组件
+     * Client组件
      */
-    public static class Work {
-        private static final String WORK = "/work";
+    public static class Client {
+        private static final String CLIENT = "/client";
         /*工作*/
-        public static final String PAGER_WORK = WORK + "/Work";
+        public static final String PAGER_CLIENT = CLIENT + "/Client";
     }
 
     /**
-     * 消息组件
+     * Assets组件
      */
-    public static class Msg {
-        private static final String MSG = "/msg";
+    public static class Assets {
+        private static final String ASSETS = "/assets";
         /*消息*/
-        public static final String PAGER_MSG = MSG + "/msg/Msg";
+        public static final String PAGER_ASSETS = ASSETS + "/Assets";
     }
 
     /**
-     * 用户组件
+     * Me组件
      */
-    public static class User {
-        private static final String USER = "/user";
+    public static class Me {
+        private static final String ME = "/me";
         /*我的*/
-        public static final String PAGER_ME = USER + "/Me";
+        public static final String PAGER_ME = ME + "/Me";
     }
     /**
-     *  任务组件
+     *  Trade组件
      */
-    public static class Mask {
-        private static final String MASK = "/mask";
+    public static class Trade {
+        private static final String TRADE = "/trade";
         /*首页*/
-        public static final String PAGER_MASK = MASK + "/Mask";
+        public static final String PAGER_TRADE = TRADE + "/Mask";
     }
 }

@@ -1,6 +1,5 @@
-package com.mvgx.main.ui;
+package com.mvgx.main.ui.activity;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -19,6 +18,7 @@ import com.mvgx.main.BR;
 import com.mvgx.main.R;
 import com.mvgx.main.app.AppViewModelFactory;
 import com.mvgx.main.databinding.ActivityLoginBinding;
+import com.mvgx.main.ui.viewmodel.LoginViewModel;
 
 /**
  * @Author Arthur

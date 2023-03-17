@@ -7,7 +7,7 @@
     <data>
         <variable
             name="loginViewModel"
-            type="com.mvgx.main.ui.LoginViewModel" />
+            type="com.mvgx.main.ui.viewmodel.LoginViewModel" />
 
     </data>
 

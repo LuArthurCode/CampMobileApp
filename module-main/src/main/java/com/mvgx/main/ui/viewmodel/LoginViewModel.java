@@ -1,4 +1,4 @@
-package com.mvgx.main.ui;
+package com.mvgx.main.ui.viewmodel;
 
 
 import android.app.Application;
@@ -18,6 +18,7 @@ import com.mvgx.common.init.binding.command.BindingCommand;
 import com.mvgx.common.init.bus.event.SingleLiveEvent;
 import com.mvgx.common.init.http.BaseResponse;
 import com.mvgx.common.init.utils.RxUtils;
+import com.mvgx.main.ui.activity.MainActivity;
 
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
@@ -49,7 +50,7 @@ public class LoginViewModel extends BaseViewModel<Repository> {
         super(application, repository);
         //从本地取得数据绑定到View层
         if (BuildConfig.DEBUG) {
-            userName.set("bookingCoo");
+            userName.set("username");
             password.set("password");
             code.set("123456");
         }
