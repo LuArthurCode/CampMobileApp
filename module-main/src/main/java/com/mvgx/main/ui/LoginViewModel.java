@@ -2,10 +2,12 @@ package com.mvgx.main.ui;
 
 
 import android.app.Application;
+import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.ObservableField;
 
+import com.hjq.toast.ToastUtils;
 import com.mvgx.common.BuildConfig;
 import com.mvgx.common.http.Repository;
 import com.mvgx.common.base.BaseViewModel;
@@ -34,7 +36,7 @@ public class LoginViewModel extends BaseViewModel<Repository> {
 
     public ObservableField<String> code = new ObservableField<>("");
 
-    public ObservableField<Boolean> onIsClickLogin = new ObservableField<Boolean>(false);
+    public ObservableField<Boolean> onIsClickLogin = new ObservableField<Boolean>(true);
     //封装一个界面发生改变的观察者
     public UIChangeObservable uc = new UIChangeObservable();
 
@@ -62,10 +64,11 @@ public class LoginViewModel extends BaseViewModel<Repository> {
     public BindingCommand loginOnClickCommand = new BindingCommand(new BindingAction() {
         @Override
         public void call() {
-            if (onIsClickLogin.get()){
-
+            if (BuildConfig.DEBUG){
+                startActivity(MainActivity.class);
+            }else {
+                login();
             }
-            login();
         }
     });
 
@@ -77,8 +80,7 @@ public class LoginViewModel extends BaseViewModel<Repository> {
         try {
             RequestLoginInfo requestLoginInfo = new RequestLoginInfo();
             requestLoginInfo.setUsername(userName.get().trim());
-//            String mPasswordStr = RSADigitalSignUtil.encryptByPublicKey(password.get().trim(), AppConfig.pubKey);
-            requestLoginInfo.setPassword("OyyMLQKnBR+THyF9dGvH/wBOnUd0HwDAvl2x+7BKXhp09CqRl+q+8I3ng8xMItrO7OK3lIYEs23JjLQRvTiGMzhMaN1DfyiLwE6XUugfq0AWW1YZd1ZZhXlfVfwmKNyGA6D83IzSaaF2gX72I5KbAJSVsRZrHPGdaHHXEt6F9qI=");
+            requestLoginInfo.setPassword("1111111");
             model.login(requestLoginInfo)
                     .compose(RxUtils.schedulersTransformer())
                     .compose(RxUtils.exceptionTransformer())
@@ -91,10 +93,13 @@ public class LoginViewModel extends BaseViewModel<Repository> {
                     }).subscribe(new DisposableObserver<BaseResponse<ResponseLoginInfo>>() {
                         @Override
                         public void onNext(@NonNull BaseResponse<ResponseLoginInfo> result) {
+                            dismissDialog();
                             if (null != result && result.isOk()) {
                                 startActivity(MainActivity.class);
                             } else {
-                                dismissDialog();
+                                if (null != result && !TextUtils.isEmpty(result.getMessage())){
+                                    ToastUtils.show(result.getMessage());
+                                }
                             }
                         }
 

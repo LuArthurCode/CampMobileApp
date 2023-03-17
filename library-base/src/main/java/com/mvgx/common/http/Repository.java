@@ -55,31 +55,28 @@ public class Repository extends BaseModel implements HttpDataSource, LocalDataSo
 
     @Override
     public void saveUserName(String userName) {
-
+        mLocalDataSource.saveUserName(userName);
     }
 
     @Override
     public void savePassword(String password) {
-
+        mLocalDataSource.savePassword(password);
     }
 
-    @Override
     public void saveFA(String password) {
-
+        mLocalDataSource.saveFA(password);
     }
 
     @Override
     public String getUserName() {
-        return null;
+        return mLocalDataSource.getUserName();
     }
 
     @Override
     public String getPassword() {
-        return null;
+        return mLocalDataSource.getPassword();
     }
-
-    @Override
     public String getFA() {
-        return null;
+        return mLocalDataSource.getFA();
     }
 }
