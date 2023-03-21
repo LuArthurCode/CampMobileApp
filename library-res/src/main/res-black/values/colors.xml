@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary_black">#ff2e2e2e</color>
-    <color name="colorPrimaryDark_black">#aaaaaa</color>
+
+    <color name="textColor_black">#333333</color>
+    <color name="textColorHint_black">#999999</color>
+    <color name="viewLineColor_black">#E0E0E0</color>
+    <color name="black_black">#FF000000</color>
+    <color name="white_black">#FFFFFFFF</color>
+    <color name="md_btn_selected_black">#33969696</color>
+    <color name="color_btn_bg_black">#00aeb2</color>
+    <color name="color_default_black">#FF97E6F0</color>
+    <color name="color_btn_un_bg_black">#408485</color>
+    <color name="material_blue_grey_800_black">#ff37474f</color>
+
+
     <color name="colorAccent_black">#dfffffff</color>
-
-    <color name="colorPrimaryReverse_black">#ffffff</color>
-    <color name="colorPrimaryDarkReverse_black">#aaaaaa</color>
-
     <color name="windowBackground_black">#ff202020</color>
-
     <color name="list_divider_color_black">#666666</color>
-
     <color name="main_text_color_black">#adadad</color>
     <color name="sub_text_color_black">#7d7d7d</color>
-
     <color name="color_background_black">#ff2e2e2e</color>
 </resources>

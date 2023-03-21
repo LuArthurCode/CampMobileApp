@@ -23,6 +23,7 @@ import skin.support.SkinCompatManager;
 public class HomeViewModel extends BaseViewModel<Repository> {
     public HomeViewModel(@NonNull Application application, Repository model) {
         super(application, model);
+        restoreSkin();
     }
 
 
@@ -46,7 +47,6 @@ public class HomeViewModel extends BaseViewModel<Repository> {
                     Log.d(AppConfig.TAG, "onFailed: "+errMsg);
                 }
             }, SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
-//            SkinCompatManager.getInstance().loadSkin(AppConfig.BLACK, SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
         }
     });
 }

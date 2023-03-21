@@ -18,6 +18,7 @@ import androidx.lifecycle.Observer;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
+import skin.support.SkinCompatManager;
 
 /**
  * Created by goldze on 2017/6/15.
@@ -243,5 +244,12 @@ public class BaseViewModel<M extends BaseModel> extends AndroidViewModel impleme
         public static String CLASS = "CLASS";
         public static String CANONICAL_NAME = "CANONICAL_NAME";
         public static String BUNDLE = "BUNDLE";
+    }
+
+    /**
+     * 恢复默认皮肤
+     */
+    public void restoreSkin(){
+        SkinCompatManager.getInstance().restoreDefaultTheme();
     }
 }
