@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="textColor">#333333</color>
-    <color name="textColorHint">#999999</color>
-    <color name="viewLineColor">#E0E0E0</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="md_btn_selected">#33969696</color>
-    <color name="color_btn_bg">#00aeb2</color>
-    <color name="color_default">#FF97E6F0</color>
-    <color name="color_btn_un_bg">#408485</color>
-    <color name="material_blue_grey_800">#ff37474f</color>
-    <!--换肤颜色处理-->
+    <color name="colorPrimary_black">#ff2e2e2e</color>
+    <color name="colorPrimaryDark_black">#aaaaaa</color>
+    <color name="colorAccent_black">#dfffffff</color>
+
+    <color name="colorPrimaryReverse_black">#ffffff</color>
+    <color name="colorPrimaryDarkReverse_black">#aaaaaa</color>
+
     <color name="windowBackground_black">#ff202020</color>
+
+    <color name="list_divider_color_black">#666666</color>
+
     <color name="main_text_color_black">#adadad</color>
     <color name="sub_text_color_black">#7d7d7d</color>
-    <color name="colorAccent">#ff333333</color>
+
     <color name="color_background_black">#ff2e2e2e</color>
 </resources>

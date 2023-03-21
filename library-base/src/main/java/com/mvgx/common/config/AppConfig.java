@@ -6,7 +6,7 @@ package com.mvgx.common.config;
  */
 public class AppConfig {
 
-
+    public static final String TAG = "AppConfig------------>";
     public static final int DEFAULT_TIMEOUT = 20;
     //缓存时间
     public static final int CACHE_TIMEOUT = 10 * 1024 * 1024;
