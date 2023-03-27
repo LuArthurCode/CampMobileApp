@@ -44,52 +44,10 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding,LoginViewMo
         return ViewModelProviders.of(this, factory).get(LoginViewModel.class);
     }
 
-    @Override
-    public void initViewObservable() {
-        //监听ViewModel中pSwitchObservable的变化, 当ViewModel中执行【uc.pSwitchObservable.set(!uc.pSwitchObservable.get());】时会回调该方法
-        viewModel.uc.pSwitchEvent.observe(this, new Observer<Boolean>() {
-            @Override
-            public void onChanged(@Nullable Boolean aBoolean) {
-                //pSwitchObservable是boolean类型的观察者,所以可以直接使用它的值改变密码开关的图标
-                if (viewModel.uc.pSwitchEvent.getValue()) {
-                    //密码可见
-                    //在xml中定义id后,使用binding可以直接拿到这个view的引用,不再需要findViewById去找控件了
-                    binding.ivSwichPasswrod.setImageResource(com.mvgx.res.R.mipmap.login_eye);
-                    binding.etPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                } else {
-                    //密码不可见
-                    binding.ivSwichPasswrod.setImageResource(com.mvgx.res.R.mipmap.login_hidden);
-                    binding.etPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                }
-            }
-        });
-    }
+
     @Override
     public void initData() {
         super.initData();
-        initViewBar(com.mvgx.res.R.color.color_default);
-        binding.etPassword.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (s.length()>0){
-                    binding.ivSwichPasswrod.setVisibility(View.VISIBLE);
-                }else {
-                    binding.ivSwichPasswrod.setVisibility(View.GONE);
-                }
-            }
-        });
-        binding.ivSwichPasswrod.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                viewModel.setPasswordIsVisible();
-            }
-        });
     }
 
 
@@ -107,7 +65,8 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding,LoginViewMo
 
     @Override
     public void onBackPressed() {
-        SoftInputUtil.closeKeybord(binding.etUsername,getApplicationContext());
+//        SoftInputUtil.closeKeybord(binding.,getApplicationContext());
         super.onBackPressed();
     }
+
 }

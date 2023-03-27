@@ -24,6 +24,8 @@ public class AppConfig {
 
     public static  boolean IS_LOGIN = false;
 
+    public static  String SKIN_DEFAULT = "SKIN_DEFAULT";
+
     public static String TOKEN = "";
 
     public static final String BLACK = "black";

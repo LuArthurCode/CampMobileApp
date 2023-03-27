@@ -58,6 +58,7 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
         initViewObservable();
         //注册RxBus
         viewModel.registerRxBus();
+        initViewBar(com.mvgx.res.R.color.color_background);
     }
 
 
@@ -68,6 +69,12 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
         ImmersionBarUtils.setUpStatusBar(this, true, true, color);
     }
 
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        initViewBar(com.mvgx.res.R.color.color_background);
+    }
 
     @Override
     protected void onDestroy() {

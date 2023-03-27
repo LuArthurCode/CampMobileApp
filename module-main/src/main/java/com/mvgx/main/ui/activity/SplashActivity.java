@@ -8,7 +8,7 @@ import android.os.Handler;
 import androidx.annotation.Nullable;
 
 import com.gyf.immersionbar.ImmersionBar;
-import com.mvgx.main.ui.activity.LoginActivity;
+import com.mvgx.main.R;
 
 /**
  *  冷启动
@@ -20,12 +20,13 @@ public class SplashActivity  extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         ImmersionBar.with(this).transparentBar().init();
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_splash);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 inMain();
             }
-        }, 3 * 1000);
+        }, 2 * 1000);
     }
 
     /**

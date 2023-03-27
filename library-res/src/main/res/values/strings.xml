@@ -1,9 +1,5 @@
 <resources>
-    <string name="app_name">library-res</string>
-    <string name="login">Login</string>
-    <string name="login_name">Name</string>
-    <string name="login_password">Password</string>
-    <string name="login_code">Code</string>
+    <string name="app_name">Camp</string>
     <string name="app_item_main">main</string>
     <string name="app_item_assets">assets</string>
     <string name="app_item_card">card</string>
@@ -11,6 +7,14 @@
     <string name="app_item_me">me</string>
     <string name="app_item_wallet">wallet</string>
     <string name="app_item_trade">trade</string>
-
+    <!--splash 页面-->
     <string name="app_change_skin">Change Skin</string>
+    <string name="splash_content">We provide you with better financial services</string>
+    <string name="splash_title">Welcome to MetaComp</string>
+
+
+    <string name="app_login_title">Welcome to MetaComp</string>
+    <string name="app_login_name_hit">Please enter account </string>
+    <string name="app_login_ps_hit">Please enter password  </string>
+    <string name="app_login_btn">Login</string>
 </resources>

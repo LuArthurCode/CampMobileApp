@@ -3,8 +3,13 @@ package com.mvgx.common.base;
 import android.app.Application;
 import android.os.Bundle;
 
+import com.mvgx.common.config.AppConfig;
 import com.mvgx.common.init.bus.event.SingleLiveEvent;
+import com.mvgx.common.init.utils.Constants;
+import com.mvgx.common.init.utils.ImmersionBarUtils;
+import com.mvgx.common.init.utils.SPUtils;
 import com.trello.rxlifecycle2.LifecycleProvider;
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
@@ -250,6 +255,21 @@ public class BaseViewModel<M extends BaseModel> extends AndroidViewModel impleme
      * 恢复默认皮肤
      */
     public void restoreSkin(){
-        SkinCompatManager.getInstance().restoreDefaultTheme();
+        boolean mSkin = SPUtils.getInstance().getBoolean(AppConfig.SKIN_DEFAULT);
+        SPUtils.getInstance().put(AppConfig.SKIN_DEFAULT, !mSkin);
+        if (mSkin){
+            //默认白色背景
+            SkinCompatManager.getInstance().restoreDefaultTheme();
+        }else {
+            //黑色背景
+            SkinCompatManager.getInstance().loadSkin(Constants.SKIN_NAME.BLACK,null, SkinCompatManager.SKIN_LOADER_STRATEGY_BUILD_IN);
+        }
+        RxAppCompatActivity rxAppCompatActivity = (RxAppCompatActivity) AppManager.getAppManager().currentActivity();
+        if (null != rxAppCompatActivity){
+            ImmersionBarUtils.setUpStatusBar(rxAppCompatActivity, true);
+        }
+
     }
+
+
 }

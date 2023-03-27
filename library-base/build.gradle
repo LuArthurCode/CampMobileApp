@@ -99,6 +99,11 @@ dependencies {
     //Google LiveData和ViewModel组件
     api rootProject.ext.dependencies["lifecycle-extensions"]
     annotationProcessor rootProject.ext.dependencies["lifecycle-compiler"]
+    //main 底部tab
+    api 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+//    implementation project(':third-part-support:flycotablayout')
+    api 'skin.support:flycotablayout:2.1.2'
+
     //如果不需要则可以去掉
     api rootProject.ext.dependencies['AutoSize']
 
@@ -124,6 +129,10 @@ dependencies {
     api rootProject.ext.dependencies['skin-cardview']
     api rootProject.ext.dependencies['skin-constraint']
     /*换肤处理*/
-
-
+    //Dialog
+    api rootProject.ext.dependencies['XPopup']
+    //联系人搜索列表
+    api rootProject.ext.dependencies['Wavesidebar']
+    //股票折线图
+    api rootProject.ext.dependencies['MPAndroidChart']
 }

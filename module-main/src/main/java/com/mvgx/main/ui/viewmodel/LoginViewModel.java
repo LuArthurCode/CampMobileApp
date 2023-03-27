@@ -37,7 +37,7 @@ public class LoginViewModel extends BaseViewModel<Repository> {
 
     public ObservableField<String> code = new ObservableField<>("");
 
-    public ObservableField<Boolean> onIsClickLogin = new ObservableField<Boolean>(true);
+    public ObservableField<Boolean> onIsClickLogin = new ObservableField<Boolean>(false);
     //封装一个界面发生改变的观察者
     public UIChangeObservable uc = new UIChangeObservable();
 

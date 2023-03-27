@@ -1,17 +1,17 @@
 package com.mvgx.main.ui.activity;
 
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 
-import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.flyco.tablayout.listener.CustomTabEntity;
+import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.mvgx.common.base.BaseActivity;
 import com.mvgx.common.base.BaseViewModel;
+import com.mvgx.common.entity.TabEntity;
 import com.mvgx.common.router.RouterActivityPath;
 import com.mvgx.common.router.RouterFragmentPath;
 import com.mvgx.main.BR;
@@ -20,12 +20,6 @@ import com.mvgx.main.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import me.majiajie.pagerbottomtabstrip.NavigationController;
-import me.majiajie.pagerbottomtabstrip.item.BaseTabItem;
-import me.majiajie.pagerbottomtabstrip.item.NormalItemView;
-import me.majiajie.pagerbottomtabstrip.listener.OnTabItemSelectedListener;
-
 /**
  * @Author Arthur
  * @Date 2023\03\16 10:35
@@ -33,11 +27,9 @@ import me.majiajie.pagerbottomtabstrip.listener.OnTabItemSelectedListener;
 @Route(path = RouterActivityPath.Main.PAGER_MAIN)
 public class MainActivity extends BaseActivity<ActivityMainBinding, BaseViewModel> {
 
+    private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
+
     private List<Fragment> mFragments;
-
-    private NormalItemView normalItemView;
-
-    private NavigationController navigationController;
 
     @Override
     public int initContentView(Bundle savedInstanceState) {
@@ -79,17 +71,27 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, BaseViewMode
     }
 
     private void initBottomTab() {
-        navigationController = binding.pagerBottomTab.custom()
-                .addItem(newItem(com.mvgx.res.R.mipmap.icon_home, com.mvgx.res.R.mipmap.icon_home_pick, getString(com.mvgx.res.R.string.app_item_home)))
-                .addItem(newItem(com.mvgx.res.R.mipmap.icon_card, com.mvgx.res.R.mipmap.icon_card_pick, getString(com.mvgx.res.R.string.app_item_card)))
-                .addItem(newItem(com.mvgx.res.R.mipmap.icon_wallet, com.mvgx.res.R.mipmap.icon_wallet_pick, getString(com.mvgx.res.R.string.app_item_wallet)))
-                .addItem(newItem(com.mvgx.res.R.mipmap.icon_me, com.mvgx.res.R.mipmap.icon_me_pick, getString(com.mvgx.res.R.string.app_item_me)))
-                .addItem(newItem(com.mvgx.res.R.mipmap.icon_me, com.mvgx.res.R.mipmap.icon_me_pick, getString(com.mvgx.res.R.string.app_item_me)))
-                .build();
-        //底部按钮的点击事件监听
-        navigationController.addTabItemSelectedListener(new OnTabItemSelectedListener() {
+        String[] mTitles = {getResources().getString(com.mvgx.res.R.string.app_item_home),
+                getResources(). getString(com.mvgx.res.R.string.app_item_card),
+                getResources().getString(com.mvgx.res.R.string.app_item_wallet),
+                getResources().getString(com.mvgx.res.R.string.app_item_me),
+                getResources().getString(com.mvgx.res.R.string.app_item_me)};
+        int[] mIconUnselectIds = {
+                com.mvgx.res.R.mipmap.icon_home, com.mvgx.res.R.mipmap.icon_client,
+                com.mvgx.res.R.mipmap.icon_trade, com.mvgx.res.R.mipmap.icon_assets
+                , com.mvgx.res.R.mipmap.icon_me};
+        int[] mIconSelectIds = {
+                com.mvgx.res.R.mipmap.icon_home_pick, com.mvgx.res.R.mipmap.icon_client_pick,
+                com.mvgx.res.R.mipmap.icon_trade, com.mvgx.res.R.mipmap.icon_assets_pick
+                , com.mvgx.res.R.mipmap.icon_me_pick};
+
+        for (int i = 0; i < mTitles.length; i++) {
+            mTabEntities.add(new TabEntity(mTitles[i], mIconSelectIds[i], mIconUnselectIds[i]));
+        }
+        binding.tl2.setTabData(mTabEntities);
+        binding.tl2.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
-            public void onSelected(int index, int old) {
+            public void onTabSelect(int index) {
                 Fragment currentFragment = mFragments.get(index);
                 if (currentFragment != null) {
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -99,18 +101,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, BaseViewMode
             }
 
             @Override
-            public void onRepeat(int index) {
+            public void onTabReselect(int position) {
             }
         });
-    }
-
-
-    @RequiresApi(api = Build.VERSION_CODES.M)
-    private BaseTabItem newItem(int drawable, int checkedDrawable, String text) {
-        normalItemView = new NormalItemView(this);
-        normalItemView.initialize(drawable, checkedDrawable, text);
-        normalItemView.setTextDefaultColor(getColor(com.mvgx.res.R.color.navigation_item_tint));
-        normalItemView.setTextCheckedColor(getColor(com.mvgx.res.R.color.navigation_item_tint));
-        return normalItemView;
     }
 }
