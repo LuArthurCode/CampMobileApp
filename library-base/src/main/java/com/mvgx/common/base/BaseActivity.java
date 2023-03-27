@@ -7,13 +7,18 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ScrollView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.app.SkinAppCompatDelegateImpl;
+import androidx.core.widget.NestedScrollView;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.FragmentActivity;
@@ -22,6 +27,7 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProviders;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.mvgx.common.init.bus.Messenger;
+import com.mvgx.common.init.utils.ConvertUtils;
 import com.mvgx.common.init.utils.ImmersionBarUtils;
 import com.mvgx.common.init.utils.MaterialDialogUtils;
 import com.mvgx.common.init.utils.SoftInputUtil;
@@ -292,6 +298,76 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
     public <T extends ViewModel> T createViewModel(FragmentActivity activity, Class<T> cls) {
         return ViewModelProviders.of(activity).get(cls);
     }
+
+
+
+
+    /**
+     * 使滚动条滚动至指定位置（垂直滚动）
+     *
+     * @param scrollView 要滚动的ScrollView
+     * @param to         滚动到的位置
+     */
+    protected void scrollVertical(final ScrollView scrollView, final int to) {
+        try {
+            scrollView.scrollTo(0, to);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 使ScrollView滚动至底部，显示Submit按钮
+     *
+     * @param scrollView 要滚动的scrollView
+     */
+    protected void scrollToShowSubmitBtn(final ScrollView scrollView) {
+        try {
+            scrollView.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    scrollView.scrollTo(0,scrollView.getBottom());
+                }
+            }, 200);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 使ScrollView滚动至底部，显示Submit按钮
+     *
+     * @param scrollView 要滚动的scrollView
+     */
+    protected void scrollToShowSubmitBtn(final ScrollView scrollView, Button view) {
+        try {
+            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+            scrollView.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    scrollVertical(scrollView, view.getHeight() + ConvertUtils.dp2px(40));
+                }
+            }, 100);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected void scrollToShowSubmitBtn(final ScrollView scrollView, Button view,int top) {
+        try {
+            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+            scrollView.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    scrollVertical(scrollView, view.getHeight() + ConvertUtils.dp2px(top+40));
+                }
+            }, 100);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
     /**
      * 根据EditText所在坐标和用户点击的坐标相对比，来判断是否隐藏键盘，因为当用户点击EditText时则不能隐藏

@@ -12,6 +12,7 @@
     </data>
 
     <ScrollView
+        android:id="@+id/login_scroll_view"
         android:fillViewport="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -72,25 +73,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"/>
             <Button
-                android:id="@+id/main_button"
+                android:id="@+id/login_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="60dp"
-                android:background="@{loginViewModel.onIsClickLogin ==true ? @drawable/shape_10_cyan_bg_click_view : @drawable/shape_10_cyan_bg_unclick_view}"
+                android:background="@{loginViewModel.onUnClickLogin == true?  @drawable/shape_10_cyan_bg_unclick_view: @drawable/shape_10_cyan_bg_click_view}"
                 android:text="@string/app_login_btn"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                binding:setClickable="@{loginViewModel.onIsClickLogin}"
                 binding:onClickCommand="@{loginViewModel.loginOnClickCommand}"
                 android:textSize="@dimen/sp_16"
-                binding:layout_constraintEnd_toEndOf="parent"
-                binding:layout_constraintStart_toStartOf="parent"
-                binding:layout_constraintTop_toBottomOf="@+id/login_pass_word" />
-
+                binding:setUnClickable="@{loginViewModel.onUnClickLogin}" />
         </LinearLayout>
-
-
-
     </ScrollView>
 
 </layout>

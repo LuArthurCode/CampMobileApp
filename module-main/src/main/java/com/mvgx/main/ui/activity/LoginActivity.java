@@ -1,19 +1,15 @@
 package com.mvgx.main.ui.activity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.text.method.HideReturnsTransformationMethod;
-import android.text.method.PasswordTransformationMethod;
 import android.view.MotionEvent;
 import android.view.View;
 
-import androidx.annotation.Nullable;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.mvgx.common.base.BaseActivity;
-import com.mvgx.common.init.utils.SoftInputUtil;
 import com.mvgx.main.BR;
 import com.mvgx.main.R;
 import com.mvgx.main.app.AppViewModelFactory;
@@ -45,9 +41,55 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding,LoginViewMo
     }
 
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public void initData() {
         super.initData();
+        binding.loginUserName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                setLoginAction();
+            }
+        });
+        binding.loginPassWord.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                setLoginAction();
+            }
+        });
+        /**
+         * 防止遮挡键盘
+         */
+        binding.loginPassWord.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                scrollToShowSubmitBtn(binding.loginScrollView,binding.loginButton,50);
+                return false;
+            }
+        });
+    }
+
+    /**
+     * 判断是否可以点击
+     */
+    private void setLoginAction() {
+        if (null != binding.loginUserName && binding.loginUserName.getText().length()>0 && null != binding.loginPassWord && binding.loginPassWord.getText().toString().length()>0){
+            viewModel.onUnClickLogin.set(false);
+        }else {
+            viewModel.onUnClickLogin.set(true);
+        }
     }
 
 

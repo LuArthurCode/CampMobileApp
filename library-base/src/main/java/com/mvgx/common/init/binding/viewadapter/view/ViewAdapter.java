@@ -10,6 +10,7 @@ import com.jakewharton.rxbinding2.view.RxView;
 import com.mvgx.common.init.binding.command.BindingCommand;
 
 import java.util.concurrent.TimeUnit;
+
 import io.reactivex.functions.Consumer;
 
 /**
@@ -27,14 +28,14 @@ public class ViewAdapter {
      * isThrottleFirst 是否开启防止过快点击
      */
     @SuppressLint("CheckResult")
-    @BindingAdapter(value = {"onClickCommand", "isThrottleFirst"}, requireAll = false)
-    public static void onClickCommand(View view, final BindingCommand clickCommand, final boolean isThrottleFirst) {
+    @BindingAdapter(value = {"onClickCommand", "isThrottleFirst", "setUnClickable"}, requireAll = false)
+    public static void onClickCommand(View view, final BindingCommand clickCommand, final boolean isThrottleFirst, final boolean setUnClickable) {
         if (isThrottleFirst) {
             RxView.clicks(view)
                     .subscribe(new Consumer<Object>() {
                         @Override
                         public void accept(Object object) throws Exception {
-                            if (clickCommand != null) {
+                            if (clickCommand != null && !setUnClickable) {
                                 clickCommand.execute();
                             }
                         }
@@ -45,7 +46,7 @@ public class ViewAdapter {
                     .subscribe(new Consumer<Object>() {
                         @Override
                         public void accept(Object object) throws Exception {
-                            if (clickCommand != null) {
+                            if (clickCommand != null && !setUnClickable) {
                                 clickCommand.execute();
                             }
                         }
@@ -123,17 +124,9 @@ public class ViewAdapter {
         }
     }
 
-    /**
-     * view的显示隐藏
-     */
-    @BindingAdapter(value = {"setClickable"}, requireAll = false)
-    public static void setClickable(View view, final Boolean checked) {
-        view.setClickable(checked);
-    }
-
     @BindingAdapter(value = {"isGone"}, requireAll = false)
     public static void isGone(View view, final Boolean visibility) {
-        if(null ==view || null == visibility) return;
+        if (null == view || null == visibility) return;
         if (visibility) {
             view.setVisibility(View.VISIBLE);
         } else {

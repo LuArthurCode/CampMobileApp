@@ -35,9 +35,8 @@ public class LoginViewModel extends BaseViewModel<Repository> {
     //密码的绑定
     public ObservableField<String> password = new ObservableField<>("");
 
-    public ObservableField<String> code = new ObservableField<>("");
 
-    public ObservableField<Boolean> onIsClickLogin = new ObservableField<Boolean>(false);
+    public ObservableField<Boolean> onUnClickLogin = new ObservableField<Boolean>(true);
     //封装一个界面发生改变的观察者
     public UIChangeObservable uc = new UIChangeObservable();
 
@@ -50,9 +49,13 @@ public class LoginViewModel extends BaseViewModel<Repository> {
         super(application, repository);
         //从本地取得数据绑定到View层
         if (BuildConfig.DEBUG) {
+            onUnClickLogin.set(false);
             userName.set("username");
             password.set("password");
-            code.set("123456");
+        }else {
+            onUnClickLogin.set(true);
+            userName.set("");
+            password.set("");
         }
     }
 

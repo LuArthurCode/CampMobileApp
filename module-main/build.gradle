@@ -15,6 +15,7 @@ android {
 }
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.core:core:1.9.0'
     testImplementation rootProject.ext.support["junit"]
     //组件依赖基础库
     api project(':library-base')

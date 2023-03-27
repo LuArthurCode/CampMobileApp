@@ -13,7 +13,6 @@ import com.mvgx.common.router.RouterFragmentPath;
 import com.mvgx.home.BR;
 import com.mvgx.home.R;
 import com.mvgx.home.app.AppViewModelFactory;
-import com.mvgx.home.databinding.HomeFragmentBinding;
 import com.mvgx.home.ui.viewmodel.HomeViewModel;
 
 /**
@@ -21,7 +20,7 @@ import com.mvgx.home.ui.viewmodel.HomeViewModel;
  * @Date 2023/03/17 13:53
  */
 @Route(path = RouterFragmentPath.Home.PAGER_HOME)
-public class HomeFragment extends BaseFragment <HomeFragmentBinding, HomeViewModel>{
+public class HomeFragment extends BaseFragment<com.mvgx.home.databinding.HomeFragmentBinding, HomeViewModel> {
     @Override
     public int initContentView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return R.layout.home_fragment;
