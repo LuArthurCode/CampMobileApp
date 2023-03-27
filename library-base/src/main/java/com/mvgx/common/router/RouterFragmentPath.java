@@ -14,6 +14,7 @@ public class RouterFragmentPath {
         private static final String HOME = "/home";
         /*首页*/
         public static final String PAGER_HOME = HOME + "/Home";
+
     }
 
     /**
@@ -41,6 +42,9 @@ public class RouterFragmentPath {
         private static final String ME = "/me";
         /*我的*/
         public static final String PAGER_ME = ME + "/Me";
+
+
+        public static final String PAGER_LANGUAGE = ME + "/LanguageActivity";
     }
     /**
      *  Trade组件

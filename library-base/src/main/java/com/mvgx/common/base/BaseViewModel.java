@@ -2,8 +2,11 @@ package com.mvgx.common.base;
 
 import android.app.Application;
 import android.os.Bundle;
+import android.view.View;
 
 import com.mvgx.common.config.AppConfig;
+import com.mvgx.common.init.binding.command.BindingAction;
+import com.mvgx.common.init.binding.command.BindingCommand;
 import com.mvgx.common.init.bus.event.SingleLiveEvent;
 import com.mvgx.common.init.utils.Constants;
 import com.mvgx.common.init.utils.ImmersionBarUtils;
@@ -16,6 +19,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.ObservableField;
+import androidx.databinding.ObservableInt;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
@@ -29,6 +34,16 @@ import skin.support.SkinCompatManager;
  * Created by goldze on 2017/6/15.
  */
 public class BaseViewModel<M extends BaseModel> extends AndroidViewModel implements IBaseViewModel, Consumer<Disposable> {
+
+    //标题文字
+    public ObservableField<String> titleText = new ObservableField<>("");
+    //右边文字
+    public ObservableField<String> rightText = new ObservableField<>("");
+    //右边文字的观察者
+    public ObservableInt rightTextVisibleObservable = new ObservableInt(View.GONE);
+    //右边图标的观察者
+    public ObservableInt rightIconVisibleObservable = new ObservableInt(View.GONE);
+
     protected M model;
     private UIChangeLiveData uc;
     //弱引用持有
@@ -251,6 +266,77 @@ public class BaseViewModel<M extends BaseModel> extends AndroidViewModel impleme
         public static String BUNDLE = "BUNDLE";
     }
 
+    /**
+     * 设置标题
+     *
+     * @param text 标题文字
+     */
+    public void setTitleText(String text) {
+        titleText.set(text);
+    }
+
+    /**
+     * 设置右边文字
+     *
+     * @param text 右边文字
+     */
+    public void setRightText(String text) {
+        rightText.set(text);
+    }
+
+    /**
+     * 设置右边文字的显示和隐藏
+     *
+     * @param visibility
+     */
+    public void setRightTextVisible(int visibility) {
+        rightTextVisibleObservable.set(visibility);
+    }
+
+    /**
+     * 设置右边图标的显示和隐藏
+     *
+     * @param visibility
+     */
+    public void setRightIconVisible(int visibility) {
+        rightIconVisibleObservable.set(visibility);
+    }
+
+    /**
+     * 返回按钮的点击事件
+     */
+    public final BindingCommand backOnClick = new BindingCommand(new BindingAction() {
+        @Override
+        public void call() {
+            finish();
+        }
+    });
+
+    public BindingCommand rightTextOnClick = new BindingCommand(new BindingAction() {
+        @Override
+        public void call() {
+            rightTextOnClick();
+        }
+    });
+    public BindingCommand rightIconOnClick = new BindingCommand(new BindingAction() {
+        @Override
+        public void call() {
+            rightIconOnClick();
+        }
+    });
+
+    /**
+     * 右边文字的点击事件，子类可重写
+     */
+    protected void rightTextOnClick() {
+    }
+
+    /**
+     * 右边图标的点击事件，子类可重写
+     */
+    protected void rightIconOnClick() {
+
+    }
     /**
      * 恢复默认皮肤
      */

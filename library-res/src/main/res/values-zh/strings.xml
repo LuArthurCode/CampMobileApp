@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Camp</string>
+    <string name="app_item_assets">资产</string>
+    <string name="app_item_client">客户</string>
+    <string name="app_item_home">首页</string>
+    <string name="app_item_me">我的</string>
+    <string name="app_item_trade">交易</string>
+    <!--splash 页面-->
+    <string name="app_change_skin">更改模式</string>
+    <string name="splash_content">我们为您提供更优质的金融服务</string>
+    <string name="splash_title">欢迎来到MetaComp</string>
 
+
+    <string name="app_login_title">欢迎来到MetaComp</string>
+    <string name="app_login_name_hit">请输入账号</string>
+    <string name="app_login_ps_hit">请输入密码</string>
+    <string name="app_login_btn">登陆</string>
+    <string name="app_language_english">English</string>
+    <string name="app_language_chinese">中文</string>
+    <string name="app_general_language">修改密码</string>
 </resources>

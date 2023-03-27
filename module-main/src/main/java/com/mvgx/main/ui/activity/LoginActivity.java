@@ -1,14 +1,9 @@
 package com.mvgx.main.ui.activity;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.MotionEvent;
-import android.view.View;
-
 import androidx.lifecycle.ViewModelProviders;
-
 import com.mvgx.common.base.BaseActivity;
 import com.mvgx.main.BR;
 import com.mvgx.main.R;
@@ -21,6 +16,8 @@ import com.mvgx.main.ui.viewmodel.LoginViewModel;
  * @Date 2023/03/16 13:41
  */
 public class LoginActivity extends BaseActivity<ActivityLoginBinding,LoginViewModel> {
+
+
     @Override
     public int initContentView(Bundle savedInstanceState) {
         return R.layout.activity_login;
@@ -29,9 +26,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding,LoginViewMo
     @Override
     public int initVariableId() {
         return BR.loginViewModel;
-
     }
-
 
     @Override
     public LoginViewModel initViewModel() {
@@ -40,8 +35,6 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding,LoginViewMo
         return ViewModelProviders.of(this, factory).get(LoginViewModel.class);
     }
 
-
-    @SuppressLint("ClickableViewAccessibility")
     @Override
     public void initData() {
         super.initData();
@@ -72,13 +65,13 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding,LoginViewMo
         /**
          * 防止遮挡键盘
          */
-        binding.loginPassWord.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                scrollToShowSubmitBtn(binding.loginScrollView,binding.loginButton,50);
-                return false;
-            }
-        });
+//        binding.loginPassWord.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                scrollToShowSubmitBtn(binding.loginScrollView,binding.loginButton,50);
+//                return false;
+//            }
+//        });
     }
 
     /**
@@ -90,25 +83,6 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding,LoginViewMo
         }else {
             viewModel.onUnClickLogin.set(true);
         }
-    }
-
-
-    @Override
-    public  boolean dispatchTouchEvent(MotionEvent ev) {
-        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
-            View v = getCurrentFocus();
-            if (isShouldHideKeyboard(v, ev)) {
-                v.clearFocus();//清除Edittext的焦点从而让光标消失
-                hideKeyboard(v.getWindowToken());
-            }
-        }
-        return super.dispatchTouchEvent(ev);
-    }
-
-    @Override
-    public void onBackPressed() {
-//        SoftInputUtil.closeKeybord(binding.,getApplicationContext());
-        super.onBackPressed();
     }
 
 }

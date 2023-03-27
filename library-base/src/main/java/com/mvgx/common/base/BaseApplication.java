@@ -2,14 +2,20 @@ package com.mvgx.common.base;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 
 import com.hjq.toast.ToastUtils;
 import com.mvgx.common.BuildConfig;
+import com.mvgx.common.config.AppConfig;
 import com.mvgx.common.init.utils.KLog;
+import com.mvgx.common.init.utils.SPUtils;
 import com.mvgx.common.init.utils.Utils;
+import com.mvgx.common.language.ConfigUtils;
+import com.mvgx.common.language.MultiLanguageUtil;
 
 import java.util.Locale;
 
@@ -37,10 +43,13 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         setApplication(this);
+
         //是否开启打印日志
         KLog.init(BuildConfig.DEBUG);
         //AutoSize初始化
         initAutoSize();
+
+        ConfigUtils.getLanguage(this, SPUtils.getInstance().getString(AppConfig.SP_LANGUAGE,""));
         //吐司的初始化
         initConfigInfo();
         //换肤功能
@@ -183,5 +192,24 @@ public class BaseApplication extends Application {
             throw new NullPointerException("please inherit BaseApplication or call setApplication.");
         }
         return sInstance;
+    }
+
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        MultiLanguageUtil.getInstance().saveSystemCurrentLanguage(base);
+        super.attachBaseContext(base);
+        //app刚启动getApplicationContext()为空
+        MultiLanguageUtil.getInstance().setConfiguration(getApplicationContext());
+    }
+
+
+
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        //app刚启动不一定调用onConfigurationChanged
+        MultiLanguageUtil.getInstance().setConfiguration(getApplicationContext());
     }
 }

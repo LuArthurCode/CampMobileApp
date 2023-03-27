@@ -22,6 +22,13 @@ public class AppConfig {
     //保存的键值Token
     public static final String USER_TOKEN = "USER_TOKEN";
 
+    //保存的语言
+    public static final String SP_LANGUAGE = "LANGUAGE";
+
+    public static final String EN = "en";
+
+    public static final String ZH = "zh";
+
     public static  boolean IS_LOGIN = false;
 
     public static  String SKIN_DEFAULT = "SKIN_DEFAULT";

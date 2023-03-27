@@ -3,6 +3,7 @@ package com.mvgx.common.base;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.view.MotionEvent;
@@ -31,6 +32,7 @@ import com.mvgx.common.init.utils.ConvertUtils;
 import com.mvgx.common.init.utils.ImmersionBarUtils;
 import com.mvgx.common.init.utils.MaterialDialogUtils;
 import com.mvgx.common.init.utils.SoftInputUtil;
+import com.mvgx.common.language.MultiLanguageUtil;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
 import java.lang.reflect.ParameterizedType;
@@ -428,4 +430,29 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
     public AppCompatDelegate getDelegate() {
         return SkinAppCompatDelegateImpl.get(this, this);
     }
+
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(MultiLanguageUtil.attachBaseContext(newBase));
+        //app杀进程启动后会调用Activity attachBaseContext
+        MultiLanguageUtil.getInstance().setConfiguration(newBase);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public void applyOverrideConfiguration(Configuration overrideConfiguration) {
+        // 兼容androidX在部分手机切换语言失败问题
+        if (overrideConfiguration != null) {
+            int uiMode = overrideConfiguration.uiMode;
+            overrideConfiguration.setTo(getBaseContext().getResources().getConfiguration());
+            overrideConfiguration.uiMode = uiMode;
+        }
+        super.applyOverrideConfiguration(overrideConfiguration);
+    }
+
 }

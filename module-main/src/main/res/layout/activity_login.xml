@@ -42,11 +42,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="80dp"
                 android:background="@null"
-                android:text="@{loginViewModel.userName}"
-                android:textCursorDrawable="@drawable/input_textcursor_color"
                 android:hint="@string/app_login_name_hit"
+                android:minHeight="48dp"
+                android:text="@{loginViewModel.userName}"
                 android:textColor="@color/color_333"
                 android:textColorHint="@color/color_D9D9"
+                android:textCursorDrawable="@drawable/input_textcursor_color"
                 android:textSize="@dimen/sp_16" />
 
             <View
@@ -61,11 +62,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="36dp"
                 android:background="@null"
-                android:text="@{loginViewModel.password}"
-                android:textCursorDrawable="@drawable/input_textcursor_color"
                 android:hint="@string/app_login_ps_hit"
+                android:minHeight="48dp"
+                android:text="@{loginViewModel.password}"
                 android:textColor="@color/color_333"
                 android:textColorHint="@color/color_D9D9"
+                android:textCursorDrawable="@drawable/input_textcursor_color"
                 android:textSize="@dimen/sp_16" />
             <View
                 android:background="@color/color_E9E9"

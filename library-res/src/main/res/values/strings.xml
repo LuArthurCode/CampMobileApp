@@ -1,20 +1,21 @@
 <resources>
-    <string name="app_name">Camp</string>
-    <string name="app_item_main">main</string>
-    <string name="app_item_assets">assets</string>
-    <string name="app_item_card">card</string>
-    <string name="app_item_home">home</string>
-    <string name="app_item_me">me</string>
-    <string name="app_item_wallet">wallet</string>
-    <string name="app_item_trade">trade</string>
+    <string name="app_name" translatable="false">Camp</string>
+    <string name="app_item_assets" translatable="false">Assets</string>
+    <string name="app_item_client" translatable="false">Client</string>
+    <string name="app_item_home" translatable="false">Home</string>
+    <string name="app_item_me" translatable="false">Me</string>
+    <string name="app_item_trade" translatable="false">Trade</string>
     <!--splash 页面-->
-    <string name="app_change_skin">Change Skin</string>
-    <string name="splash_content">We provide you with better financial services</string>
-    <string name="splash_title">Welcome to MetaComp</string>
+    <string name="app_change_skin" translatable="false">Change Skin</string>
+    <string name="splash_content" translatable="false">We provide you with better financial services</string>
+    <string name="splash_title" translatable="false">Welcome to MetaComp</string>
 
 
-    <string name="app_login_title">Welcome to MetaComp</string>
-    <string name="app_login_name_hit">Please enter account </string>
-    <string name="app_login_ps_hit">Please enter password  </string>
-    <string name="app_login_btn">Login</string>
+    <string name="app_login_title" translatable="false">Welcome to MetaComp</string>
+    <string name="app_login_name_hit" translatable="false">Please enter account </string>
+    <string name="app_login_ps_hit" translatable="false">Please enter password  </string>
+    <string name="app_login_btn" translatable="false">Login</string>
+    <string name="app_language_english" translatable="false">English</string>
+    <string name="app_language_chinese" translatable="false">中文</string>
+    <string name="app_general_language" translatable="false">Change Language</string>
 </resources>

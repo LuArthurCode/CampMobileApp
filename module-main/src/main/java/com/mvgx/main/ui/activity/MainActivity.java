@@ -1,5 +1,7 @@
 package com.mvgx.main.ui.activity;
 
+import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,6 +14,7 @@ import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.mvgx.common.base.BaseActivity;
 import com.mvgx.common.base.BaseViewModel;
 import com.mvgx.common.entity.TabEntity;
+import com.mvgx.common.language.MultiLanguageUtil;
 import com.mvgx.common.router.RouterActivityPath;
 import com.mvgx.common.router.RouterFragmentPath;
 import com.mvgx.main.BR;
@@ -71,11 +74,11 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, BaseViewMode
     }
 
     private void initBottomTab() {
-        String[] mTitles = {getResources().getString(com.mvgx.res.R.string.app_item_home),
-                getResources(). getString(com.mvgx.res.R.string.app_item_card),
-                getResources().getString(com.mvgx.res.R.string.app_item_wallet),
-                getResources().getString(com.mvgx.res.R.string.app_item_me),
-                getResources().getString(com.mvgx.res.R.string.app_item_me)};
+        String[] mTitles = {this.getResources().getString(com.mvgx.res.R.string.app_item_home),
+                this.getResources(). getString(com.mvgx.res.R.string.app_item_client),
+                this.getResources().getString(com.mvgx.res.R.string.app_item_trade),
+                this.getResources().getString(com.mvgx.res.R.string.app_item_assets),
+                this.getResources().getString(com.mvgx.res.R.string.app_item_me)};
         int[] mIconUnselectIds = {
                 com.mvgx.res.R.mipmap.icon_home, com.mvgx.res.R.mipmap.icon_client,
                 com.mvgx.res.R.mipmap.icon_trade, com.mvgx.res.R.mipmap.icon_assets
@@ -104,5 +107,17 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, BaseViewMode
             public void onTabReselect(int position) {
             }
         });
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(MultiLanguageUtil.attachBaseContext(newBase));
+        //app杀进程启动后会调用Activity attachBaseContext
+        MultiLanguageUtil.getInstance().setConfiguration(newBase);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
     }
 }

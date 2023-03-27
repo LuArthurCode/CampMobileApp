@@ -48,7 +48,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.mvgx.main.ui.activity.MainActivity" />
-        <activity android:name="com.mvgx.main.ui.activity.LoginActivity" />
+        <activity android:name="com.mvgx.main.ui.activity.MainActivity"
+            android:exported="true"/>
+        <activity android:name="com.mvgx.main.ui.activity.LoginActivity"
+            android:exported="true"/>
+        <activity android:name="com.mvgx.me.ui.activity.LanguageActivity"/>
     </application>
 </manifest>

@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.mvgx.common.http.Repository;
 import com.mvgx.main.ui.viewmodel.LoginViewModel;
+import com.mvgx.main.ui.viewmodel.SplashViewModel;
 
 /**
  * Created by goldze on 2019/3/26.
@@ -47,9 +48,10 @@ public class AppViewModelFactory extends ViewModelProvider.NewInstanceFactory {
         if (modelClass.isAssignableFrom(LoginViewModel.class)) {
             return (T) new LoginViewModel(mApplication, mRepository);
         }
-//        else if (modelClass.isAssignableFrom(HomeViewModel.class)) {
-//            return (T) new HomeViewModel(mApplication, mRepository);
-//        } else if (modelClass.isAssignableFrom(SettingViewModel.class)) {
+        else if (modelClass.isAssignableFrom(SplashViewModel.class)) {
+            return (T) new SplashViewModel(mApplication, mRepository);
+        }
+//        else if (modelClass.isAssignableFrom(SettingViewModel.class)) {
 //            return (T) new SettingViewModel(mApplication, mRepository);
 //        }
 

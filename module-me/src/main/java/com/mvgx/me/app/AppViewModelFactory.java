@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.mvgx.common.http.Repository;
+import com.mvgx.me.ui.viewmodel.LanguageViewModel;
 import com.mvgx.me.ui.viewmodel.MeViewModel;
 
 /**
@@ -46,6 +47,8 @@ public class AppViewModelFactory extends ViewModelProvider.NewInstanceFactory {
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
         if (modelClass.isAssignableFrom(MeViewModel.class)) {
             return (T) new MeViewModel(mApplication, mRepository);
+        }else if (modelClass.isAssignableFrom(LanguageViewModel.class)) {
+            return (T) new LanguageViewModel(mApplication, mRepository);
         }
 
 
