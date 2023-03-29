@@ -47,9 +47,11 @@ public class HomeViewModel extends BaseViewModel<Repository> {
     public List<Fragment> mFragments;
     public List<String> mTitlePager;
 
+    public UIChangeObservable uc = new UIChangeObservable();
+
     public HomeViewModel(@NonNull Application application, Repository model) {
         super(application, model);
-        loadHomeInfo();
+
     }
 
     @Override
@@ -66,6 +68,23 @@ public class HomeViewModel extends BaseViewModel<Repository> {
         public SingleLiveEvent finishRefresh = new SingleLiveEvent();
     }
 
+
+    public BindingCommand stateClickCommand = new BindingCommand(new BindingAction() {
+        @Override
+        public void call() {
+            loadHomeInfo();
+        }
+    });
+
+    public BindingCommand onRefreshCommand = new BindingCommand(new BindingAction() {
+        @Override
+        public void call() {
+            loadHomeInfo();
+        }
+    });
+
+
+
     @SuppressWarnings("unchecked")
     public void loadHomeInfo(){
         HomeRequestInfo homeRequestInfo = new HomeRequestInfo();
@@ -81,20 +100,20 @@ public class HomeViewModel extends BaseViewModel<Repository> {
                 }).subscribe(new DisposableObserver<BaseResponse<List<HomePieResponse>>>() {
                     @Override
                     public void onNext(@NonNull BaseResponse<List<HomePieResponse>> result) {
-//                        dismissDialog();
+                        dismissDialog();
                         if (null != result && result.isOk() && null != result.getData() && result.getData().size() > 0){
                             for (HomePieResponse homeInfo : result.getData()) {
                                 HomePieFragment homePieFragment = new HomePieFragment();
                                 mFragments.add(homePieFragment);
                                 mTitlePager.add(homeInfo.getTitle());
                             }
-
+                            uc.finishRefresh.call();
                         }
                     }
 
                     @Override
                     public void onError(@NonNull Throwable throwable) {
-//                        dismissDialog();
+                        dismissDialog();
                     }
 
                     @Override

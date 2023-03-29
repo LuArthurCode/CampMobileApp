@@ -10,16 +10,18 @@ import java.util.List;
  */
 public class HomePieResponse implements Serializable {
 
+
     /**
-     * sequence : 1
-     * type : orderAsset
-     * title : Asset Under Management
-     * value : {"total":3.01401458553E9,"list":[{"name":"LNK","value":1.0467834376E8},{"name":"CNT","value":0},{"name":"CNV","value":0},{"name":"ALW","value":0},{"name":"NS1","value":0},{"name":"THB","value":0},{"name":"AUD","value":0},{"name":"JPY","value":0},{"name":"TS1","value":0},{"name":"GBP","value":0},{"name":"IDR","value":0},{"name":"NBS","value":0},{"name":"MBT","value":0},{"name":"HKD","value":0},{"name":"EUR","value":2.637660123E7},{"name":"USDC","value":1.200368187E7},{"name":"TBS","value":0},{"name":"HR1","value":0},{"name":"USD","value":2.394549977E7},{"name":"CAD","value":0},{"name":"NOK","value":0},{"name":"BTC","value":3.5684161381E8},{"name":"SGD","value":1.878956387E7},{"name":"USDT","value":2.46415442995E9},{"name":"SEK","value":0},{"name":"ETH","value":7224851.27},{"name":"NZD","value":0},{"name":"CNH","value":0}]}
+     * sequence : 99
+     * type : cryptoRate
+     * title : Market
+     * value : {"list":[{"name":"USDT","value":[{"date":"2023-02-27","type":"USD","value":1.0008},{"date":"2023-02-28","type":"USD","value":1.0006},{"date":"2023-03-01","type":"USD","value":1.0009},{"date":"2023-03-02","type":"USD","value":1.0008},{"date":"2023-03-03","type":"USD","value":1.0008},{"date":"2023-03-04","type":"USD","value":1.0009},{"date":"2023-03-05","type":"USD","value":1.001},{"date":"2023-03-06","type":"USD","value":1.0005},{"date":"2023-03-07","type":"USD","value":1.0006},{"date":"2023-03-08","type":"USD","value":1.0006},{"date":"2023-03-09","type":"USD","value":1.0005},{"date":"2023-03-10","type":"USD","value":1.0002},{"date":"2023-03-11","type":"USD","value":1.0007},{"date":"2023-03-14","type":"USD","value":1.0055},{"date":"2023-03-15","type":"USD","value":1.0057},{"date":"2023-03-16","type":"USD","value":1.004},{"date":"2023-03-17","type":"USD","value":1.0034},{"date":"2023-03-18","type":"USD","value":1.0028},{"date":"2023-03-19","type":"USD","value":1.0044},{"date":"2023-03-20","type":"USD","value":1.0046},{"date":"2023-03-21","type":"USD","value":1.0042},{"date":"2023-03-22","type":"USD","value":1.0025},{"date":"2023-03-23","type":"USD","value":1.0033},{"date":"2023-03-24","type":"USD","value":1.0037},{"date":"2023-03-25","type":"USD","value":1.0024},{"date":"2023-03-26","type":"USD","value":1.0026},{"date":"2023-03-27","type":"USD","value":1.0025},{"date":"2023-03-28","type":"USD","value":1.0018},{"date":"2023-03-29","type":"USD","value":1.0017}]},{"name":"USDC","value":[{"date":"2023-02-27","type":"USD","value":1.0001},{"date":"2023-02-28","type":"USD","value":1.0001},{"date":"2023-03-01","type":"USD","value":1.0001},{"date":"2023-03-02","type":"USD","value":1.0001},{"date":"2023-03-03","type":"USD","value":1.0001},{"date":"2023-03-04","type":"USD","value":1.0001},{"date":"2023-03-05","type":"USD","value":1.0001},{"date":"2023-03-06","type":"USD","value":1.0001},{"date":"2023-03-07","type":"USD","value":1.0001},{"date":"2023-03-08","type":"USD","value":1.0001},{"date":"2023-03-09","type":"USD","value":1.0001},{"date":"2023-03-10","type":"USD","value":1.0001},{"date":"2023-03-11","type":"USD","value":1.0001},{"date":"2023-03-14","type":"USD","value":0},{"date":"2023-03-15","type":"USD","value":0},{"date":"2023-03-16","type":"USD","value":0},{"date":"2023-03-17","type":"USD","value":0},{"date":"2023-03-18","type":"USD","value":0},{"date":"2023-03-19","type":"USD","value":0},{"date":"2023-03-20","type":"USD","value":0},{"date":"2023-03-21","type":"USD","value":0},{"date":"2023-03-22","type":"USD","value":0},{"date":"2023-03-23","type":"USD","value":0},{"date":"2023-03-24","type":"USD","value":0},{"date":"2023-03-25","type":"USD","value":0},{"date":"2023-03-26","type":"USD","value":1.000073},{"date":"2023-03-27","type":"USD","value":1.000042},{"date":"2023-03-28","type":"USD","value":0},{"date":"2023-03-29","type":"USD","value":0}]}]}
      */
+
     private int sequence;
     private String type;
     private String title;
-    private ValueBean value;
+    private ValueBeanX value;
 
 
     public int getSequence() {
@@ -46,30 +48,16 @@ public class HomePieResponse implements Serializable {
         this.title = title == null ? "" : title;
     }
 
-    public ValueBean getValue() {
+    public ValueBeanX getValue() {
         return value;
     }
 
-    public void setValue(ValueBean value) {
+    public void setValue(ValueBeanX value) {
         this.value = value;
     }
 
-    public static class ValueBean implements Serializable {
-        /**
-         * total : 3.01401458553E9
-         * list : [{"name":"LNK","value":1.0467834376E8},{"name":"CNT","value":0},{"name":"CNV","value":0},{"name":"ALW","value":0},{"name":"NS1","value":0},{"name":"THB","value":0},{"name":"AUD","value":0},{"name":"JPY","value":0},{"name":"TS1","value":0},{"name":"GBP","value":0},{"name":"IDR","value":0},{"name":"NBS","value":0},{"name":"MBT","value":0},{"name":"HKD","value":0},{"name":"EUR","value":2.637660123E7},{"name":"USDC","value":1.200368187E7},{"name":"TBS","value":0},{"name":"HR1","value":0},{"name":"USD","value":2.394549977E7},{"name":"CAD","value":0},{"name":"NOK","value":0},{"name":"BTC","value":3.5684161381E8},{"name":"SGD","value":1.878956387E7},{"name":"USDT","value":2.46415442995E9},{"name":"SEK","value":0},{"name":"ETH","value":7224851.27},{"name":"NZD","value":0},{"name":"CNH","value":0}]
-         */
-
-        private double total;
+    public static class ValueBeanX implements Serializable {
         private List<ListBean> list;
-
-        public double getTotal() {
-            return total;
-        }
-
-        public void setTotal(double total) {
-            this.total = total;
-        }
 
         public List<ListBean> getList() {
             if (list == null) {
@@ -84,13 +72,12 @@ public class HomePieResponse implements Serializable {
 
         public static class ListBean implements Serializable {
             /**
-             * name : LNK
-             * value : 1.0467834376E8
+             * name : USDT
+             * value : [{"date":"2023-02-27","type":"USD","value":1.0008},{"date":"2023-02-28","type":"USD","value":1.0006},{"date":"2023-03-01","type":"USD","value":1.0009},{"date":"2023-03-02","type":"USD","value":1.0008},{"date":"2023-03-03","type":"USD","value":1.0008},{"date":"2023-03-04","type":"USD","value":1.0009},{"date":"2023-03-05","type":"USD","value":1.001},{"date":"2023-03-06","type":"USD","value":1.0005},{"date":"2023-03-07","type":"USD","value":1.0006},{"date":"2023-03-08","type":"USD","value":1.0006},{"date":"2023-03-09","type":"USD","value":1.0005},{"date":"2023-03-10","type":"USD","value":1.0002},{"date":"2023-03-11","type":"USD","value":1.0007},{"date":"2023-03-14","type":"USD","value":1.0055},{"date":"2023-03-15","type":"USD","value":1.0057},{"date":"2023-03-16","type":"USD","value":1.004},{"date":"2023-03-17","type":"USD","value":1.0034},{"date":"2023-03-18","type":"USD","value":1.0028},{"date":"2023-03-19","type":"USD","value":1.0044},{"date":"2023-03-20","type":"USD","value":1.0046},{"date":"2023-03-21","type":"USD","value":1.0042},{"date":"2023-03-22","type":"USD","value":1.0025},{"date":"2023-03-23","type":"USD","value":1.0033},{"date":"2023-03-24","type":"USD","value":1.0037},{"date":"2023-03-25","type":"USD","value":1.0024},{"date":"2023-03-26","type":"USD","value":1.0026},{"date":"2023-03-27","type":"USD","value":1.0025},{"date":"2023-03-28","type":"USD","value":1.0018},{"date":"2023-03-29","type":"USD","value":1.0017}]
              */
 
             private String name;
-
-            private double value;
+            private List<ValueBean> value;
 
             public String getName() {
                 return name == null ? "" : name;
@@ -100,12 +87,51 @@ public class HomePieResponse implements Serializable {
                 this.name = name == null ? "" : name;
             }
 
-            public double getValue() {
+            public List<ValueBean> getValue() {
+                if (value == null) {
+                    return new ArrayList<>();
+                }
                 return value;
             }
 
-            public void setValue(double value) {
+            public void setValue(List<ValueBean> value) {
                 this.value = value;
+            }
+
+            public static class ValueBean implements Serializable {
+                /**
+                 * date : 2023-02-27
+                 * type : USD
+                 * value : 1.0008
+                 */
+
+                private String date;
+                private String type;
+                private double value;
+
+                public String getDate() {
+                    return date == null ? "" : date;
+                }
+
+                public void setDate(String date) {
+                    this.date = date == null ? "" : date;
+                }
+
+                public String getType() {
+                    return type == null ? "" : type;
+                }
+
+                public void setType(String type) {
+                    this.type = type == null ? "" : type;
+                }
+
+                public double getValue() {
+                    return value;
+                }
+
+                public void setValue(double value) {
+                    this.value = value;
+                }
             }
         }
     }

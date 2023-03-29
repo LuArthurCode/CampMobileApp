@@ -37,7 +37,7 @@ public class AppConfig {
 
     public static final String ZH = "zh";
 
-    public static final String IS_LOGIN = "IS_LOGIN";
+    public static  boolean IS_LOGIN = false;
 
     public static  String SKIN_DEFAULT = "SKIN_DEFAULT";
 

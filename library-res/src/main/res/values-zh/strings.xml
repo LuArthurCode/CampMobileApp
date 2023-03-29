@@ -7,6 +7,9 @@
     <string name="app_item_me">我的</string>
     <string name="app_item_trade">交易</string>
     <string name="app_loading">加载中...</string>
+    <string name="app_file_is_empty">没有数据</string>
+    <string name="app_transfer_failure">发生意外了</string>
+    <string name="app_unknown_error_occurred">有未知的意外</string>
     <!--splash 页面-->
     <string name="app_change_skin">更改模式</string>
     <string name="splash_content">我们为您提供更优质的金融服务</string>

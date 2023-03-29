@@ -161,10 +161,23 @@
         <attr name="refreshing" format="boolean" />
     </declare-styleable>
 
+
     <declare-styleable name="WebView">
         <!-- require String render to html show in webview-->
         <attr name="render" format="string" />
     </declare-styleable>
+
+    <!--自定义视图 view -->
+    <declare-styleable name="MultiStateView">
+        <attr name="msv_viewState">
+            <enum name="CONTENT" value="0" />
+            <enum name="EMPTY" value="1" />
+            <enum name="ERROR" value="2" />
+            <enum name="LOADING" value="3" />
+        </attr>
+        <attr name="onStateClickCommand" format="reference" />
+    </declare-styleable>
+
     <!-- 自定义控制事件分发的LinearLayout -->
     <declare-styleable name="ControlDistributeLinearLayout">
         <attr name="distribute_event" format="boolean" />

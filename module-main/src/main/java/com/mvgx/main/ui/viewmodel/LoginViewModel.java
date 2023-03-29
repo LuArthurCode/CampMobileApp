@@ -103,8 +103,9 @@ public class LoginViewModel extends BaseViewModel<Repository> {
                         public void onNext(@NonNull BaseResponseToken result) {
                             dismissDialog();
                             if (null != result && !TextUtils.isEmpty(result.getToken())){
-                                String token = result.getToken();
-                                JWT jwt = new JWT(token);
+                                AppConfig.TOKEN = result.getToken();
+                                AppConfig.IS_LOGIN= true;
+                                JWT jwt = new JWT(AppConfig.TOKEN);
                                 Map<String, Claim> claims = jwt.getClaims();
                                 String userInfo = GsonUtils.getInstance().toJson(claims);
                                 if (!TextUtils.isEmpty(userInfo)){

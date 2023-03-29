@@ -31,6 +31,19 @@ public class ViewAdapter {
                     onLoadMoreCommand.execute();
                 }
             }
+
         });
     }
+
+    @BindingAdapter(value = {"tr_enable_refresh"}, requireAll = false)
+    public static void onEnableRefreshCommand(TwinklingRefreshLayout layout, final boolean enAble) {
+        layout.setEnableRefresh(enAble);
+    }
+
+    @BindingAdapter(value = {"tr_enable_loadmore"}, requireAll = false)
+    public static void onEnableLoadCommand(TwinklingRefreshLayout layout, final boolean enAble) {
+        layout.setEnableLoadmore(enAble);
+    }
+
+
 }
