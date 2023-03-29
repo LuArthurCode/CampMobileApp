@@ -42,6 +42,10 @@ ext {
             "lifecycle-extensions"                 : "androidx.lifecycle:lifecycle-extensions:2.0.0",
             "lifecycle-compiler"                   : "androidx.lifecycle:lifecycle-compiler:2.0.0",
 
+            'CodeCommon'                           : 'commons-codec:commons-codec:1.11',
+            //Token  解析
+            'Jsonwebtoken'                         : 'com.auth0.android:jwtdecode:2.0.2',
+
             //如果不需要则可以去掉
             //屏幕适配
             "AutoSize"                             : 'com.github.JessYanCoding:AndroidAutoSize:v1.2.1',

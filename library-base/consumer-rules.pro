@@ -1,3 +1,7 @@
+-keep class android.content.res.Resources$Theme {
+  void rebase();
+}
+
 #xpopup
 -dontwarn com.lxj.xpopup.widget.**
 -keep class com.lxj.xpopup.widget.**{*;}

@@ -3,7 +3,6 @@ package com.mvgx.common.base;
 import android.app.Application;
 import android.os.Bundle;
 import android.view.View;
-
 import com.mvgx.common.config.AppConfig;
 import com.mvgx.common.init.binding.command.BindingAction;
 import com.mvgx.common.init.binding.command.BindingCommand;
@@ -13,11 +12,9 @@ import com.mvgx.common.init.utils.ImmersionBarUtils;
 import com.mvgx.common.init.utils.SPUtils;
 import com.trello.rxlifecycle2.LifecycleProvider;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
-
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
-
 import androidx.annotation.NonNull;
 import androidx.databinding.ObservableField;
 import androidx.databinding.ObservableInt;
@@ -89,7 +86,7 @@ public class BaseViewModel<M extends BaseModel> extends AndroidViewModel impleme
     }
 
     public void showDialog() {
-        showDialog("请稍后...");
+        showDialog(AppManager.getAppManager().currentActivity().getString(com.mvgx.res.R.string.app_loading));
     }
 
     public void showDialog(String title) {
@@ -100,6 +97,7 @@ public class BaseViewModel<M extends BaseModel> extends AndroidViewModel impleme
         uc.dismissDialogEvent.call();
     }
 
+    public void checkNetWork(){};
     /**
      * 跳转页面
      *

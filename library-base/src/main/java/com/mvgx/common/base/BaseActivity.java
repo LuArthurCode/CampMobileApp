@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -27,12 +28,14 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProviders;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.mvgx.common.R;
 import com.mvgx.common.init.bus.Messenger;
 import com.mvgx.common.init.utils.ConvertUtils;
 import com.mvgx.common.init.utils.ImmersionBarUtils;
 import com.mvgx.common.init.utils.MaterialDialogUtils;
 import com.mvgx.common.init.utils.SoftInputUtil;
 import com.mvgx.common.language.MultiLanguageUtil;
+import com.mvgx.common.loading.ProgressLoadDialog;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
 import java.lang.reflect.ParameterizedType;
@@ -49,7 +52,7 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
     protected V binding;
     protected VM viewModel;
     private int viewModelId;
-    private MaterialDialog dialog;
+    public ProgressLoadDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,14 +146,14 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
         viewModel.getUC().getShowDialogEvent().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String title) {
-                showDialog(title);
+                showProgressDialog(title);
             }
         });
         //加载对话框消失
         viewModel.getUC().getDismissDialogEvent().observe(this, new Observer<Void>() {
             @Override
             public void onChanged(@Nullable Void v) {
-                dismissDialog();
+                dismissProgressDialog();
             }
         });
         //跳入新页面
@@ -187,20 +190,33 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
         });
     }
 
-    public void showDialog(String title) {
-        if (dialog != null) {
-            dialog.show();
-        } else {
-            MaterialDialog.Builder builder = MaterialDialogUtils.showIndeterminateProgressDialog(this, title, true);
-            dialog = builder.show();
+
+    /**
+     * @param tip 提示文字
+     * @param tip 是否触摸取消
+     */
+    public void showProgressDialog(String tip) {
+        if (null != progressDialog) {
+            progressDialog.show();
+            return;
+        }
+        View view = LayoutInflater.from(this).inflate(R.layout.layout_dialog_progress, null, false);
+        progressDialog = new ProgressLoadDialog(this).addView(view, 0.3f).setCancelable(false).builder();
+        progressDialog.show();
+        TextView textView = view.findViewById(R.id.dialog_progress_tip);
+        textView.setText(tip);
+    }
+
+    /**
+     * 关闭正在加载对话框
+     */
+    public void dismissProgressDialog() {
+        if (progressDialog != null && progressDialog.isShow()) {
+            progressDialog.dismiss();
         }
     }
 
-    public void dismissDialog() {
-        if (dialog != null && dialog.isShowing()) {
-            dialog.dismiss();
-        }
-    }
+
 
     /**
      * 跳转页面

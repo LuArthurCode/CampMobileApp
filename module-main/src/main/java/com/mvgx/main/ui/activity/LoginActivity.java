@@ -62,16 +62,6 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding,LoginViewMo
                 setLoginAction();
             }
         });
-        /**
-         * 防止遮挡键盘
-         */
-//        binding.loginPassWord.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                scrollToShowSubmitBtn(binding.loginScrollView,binding.loginButton,50);
-//                return false;
-//            }
-//        });
     }
 
     /**

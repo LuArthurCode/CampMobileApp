@@ -6,6 +6,7 @@
     <string name="app_item_home">Home</string>
     <string name="app_item_me">Me</string>
     <string name="app_item_trade">Trade</string>
+    <string name="app_loading">loading...</string>
     <!--splash 页面-->
     <string name="app_change_skin">Change Skin</string>
     <string name="splash_content">We provide you with better financial services</string>

@@ -6,6 +6,11 @@ import com.mvgx.common.http.response.ResponseLoginInfo;
 import com.mvgx.common.http.source.HttpDataSource;
 import com.mvgx.common.http.source.http.service.ApiService;
 import com.mvgx.common.init.http.BaseResponse;
+import com.mvgx.common.init.http.BaseResponseToken;
+import com.mvgx.common.request.HomeRequestInfo;
+import com.mvgx.common.response.HomePieResponse;
+
+import java.util.List;
 
 import io.reactivex.Observable;
 
@@ -36,8 +41,13 @@ public class HttpDataSourceImpl implements HttpDataSource {
     }
 
     @Override
-    public Observable<BaseResponse<ResponseLoginInfo>> login(RequestLoginInfo info) {
+    public Observable<BaseResponseToken> login(RequestLoginInfo info) {
         return apiService.login(info);
+    }
+
+    @Override
+    public Observable<BaseResponse<List<HomePieResponse>>> getStatisticsMain(HomeRequestInfo homeRequestInfo) {
+        return apiService.getStatisticsMain(homeRequestInfo);
     }
 
 

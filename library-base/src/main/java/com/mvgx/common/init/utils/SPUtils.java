@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 
 import androidx.annotation.NonNull;
 
+import com.mvgx.common.config.AppConfig;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -279,4 +281,14 @@ public final class SPUtils {
         }
         return true;
     }
+
+
+    public long getExpirationDateLong(){
+        return sp.getLong(AppConfig.EXPIRATION_DATA, 0);
+    }
+
+    public long getRecommendDateLong(){
+        return sp.getLong(AppConfig.RECOMMEND_DATA, 0);
+    }
+
 }

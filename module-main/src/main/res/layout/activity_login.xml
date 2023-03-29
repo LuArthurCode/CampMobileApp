@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:binding="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="ResourceName">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -27,7 +26,6 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/main_textview3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="150dp"

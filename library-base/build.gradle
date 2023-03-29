@@ -121,6 +121,10 @@ dependencies {
     api rootProject.ext.dependencies['material-material']
 
     api rootProject.ext.dependencies['constraintlayout']
+    // 加密
+    api rootProject.ext.dependencies['CodeCommon']
+    //解析
+    api rootProject.ext.dependencies['Jsonwebtoken']
 
     /*换肤处理*/
     api rootProject.ext.dependencies['skin-support']

@@ -22,7 +22,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.Cache;
 import okhttp3.ConnectionPool;
+import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import okhttp3.internal.platform.Platform;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -41,6 +43,15 @@ public class RetrofitClient {
 
     private Cache cache = null;
     private File httpCacheDirectory;
+
+    private String token = "";
+
+    private boolean isLogin = false;
+    private boolean REFRESH = false;
+    private long expirationDate;
+    private long recommendDate;
+    private long currentTimeDate;
+
 
     private static class SingletonHolder {
         private static RetrofitClient INSTANCE = new RetrofitClient();
@@ -103,87 +114,10 @@ public class RetrofitClient {
     }
 
 
-    /**
-     * 根据Response，判断Token是否失效
-     * 1.token 判断 第一是根据期望刷新时间，如果已经超过了期望刷新时间，
-     * 则比较过期时间，如果没有超过过期时间，那么就刷新token
-     * 2.如果已经超过了期望时间则需要进行登录，直接跳转到登录页面。
-     * 时间戳
-     *
-     * @return
-     */
-//    private boolean isTokenExpired(Request request) {
-//        // 否则的话 则都是需要去登录界面
-//        if (null != request) {
-//            HttpUrl url = request.url();
-//            isLogin = SPUtils.getInstance().getBoolean(AppConfig.IS_LOGIN);
-//            expirationDate = SPUtils.getInstance().getExpirationDateLong();//到期时间
-//            recommendDate = SPUtils.getInstance().getRecommendDateLong();//期望时间
-//            currentTimeDate = TimeUtils.getCurTimeLong();
-//            /**
-//             * 如果是已经登录则比较是否要刷新token
-//             */
-//            if (isLogin && !REFRESH) {
-//                if (currentTimeDate < expirationDate) {// 当前时间小于 过期时间
-//                    if (currentTimeDate > recommendDate) {// 当前时间大于  期望时间
-//                        REFRESH = true;
-//                        return true;
-//                    }
-//                    return false;//没有大于期望时间 什么都不用做，正常访问网络
-//                }
-//            }
-//
-//            if (null != url) {
-//                if (url.encodedPath().equals(AppConfig.URL_LOGIN) || url.encodedPath().equals(AppConfig.URL_FA_LOGIN) || url.encodedPath().equals(AppConfig.URL_REFRESH_TOKEN)) {
-//                    return false;
-//                }
-//            }
-//        }
-//        return false;
-//    }
-
     //自定义添加header参数
     public void addHeader(Map head) {
         if (null == head) return;
     }
-
-
-    /**
-     * 同步请求方式，获取最新的Token
-     *
-     * @return
-     */
-//    private synchronized Request getNewToken(Interceptor.Chain chain) {
-//        // 通过获取token的接口，同步请求接口
-//        Request newRequest = chain.request()
-//                .newBuilder()
-//                .header("authorization", "Bearer " + token)
-//                .build();
-//        try {
-//            ApiService apiService = RetrofitClient.getInstance().create(ApiService.class);
-//            String string = SPUtils.getInstance().getString(TOKEN);
-//            Call<BaseResponse<TokenInfo>> baseResponseCall = apiService.refreshToken(string);
-//            retrofit2.Response<BaseResponse<TokenInfo>> execute = baseResponseCall.execute();
-//            BaseResponse<TokenInfo> body = execute.body();
-//            if (null != body && null != body.getData()) {
-//                TokenInfo data = body.getData();
-//                token = data.getToken();
-//                SPUtils.getInstance().put(TOKEN, data.getToken());
-//                SPUtils.getInstance().put(AppConfig.EXPIRATION_DATA, data.getExpirationDate());
-//                SPUtils.getInstance().put(AppConfig.RECOMMEND_DATA, data.getRecommendDate());
-//                SPUtils.getInstance().put(AppConfig.TOKENINFO, data.toJsonString());
-//                Log.d("TAG", "自动刷新Token,请求回来的结果：" + token);
-//                newRequest = chain.request()
-//                        .newBuilder()
-//                        .header("authorization", "Bearer " + token)
-//                        .build();
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return newRequest;
-//    }
-
 
     /**
      * create you ApiService

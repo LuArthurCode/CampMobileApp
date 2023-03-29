@@ -16,7 +16,7 @@
     <color name="color_D9D9">#FFD9D9D9</color>
     <color name="color_ABB0">#FF07ABB0</color>
     <color name="color_E9E9">#FFE9E9E9</color>
-
+    <color name="default_textColor">#000</color>
 
 
 

@@ -5,10 +5,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.mvgx.common.R;
 import com.mvgx.common.init.bus.Messenger;
 import com.mvgx.common.init.utils.MaterialDialogUtils;
+import com.mvgx.common.loading.ProgressLoadDialog;
 import com.trello.rxlifecycle2.components.support.RxFragment;
 
 import java.lang.reflect.ParameterizedType;
@@ -30,7 +33,7 @@ public abstract class BaseFragment<V extends ViewDataBinding, VM extends BaseVie
     protected V binding;
     protected VM viewModel;
     private int viewModelId;
-    private MaterialDialog dialog;
+    public ProgressLoadDialog progressDialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -113,14 +116,14 @@ public abstract class BaseFragment<V extends ViewDataBinding, VM extends BaseVie
         viewModel.getUC().getShowDialogEvent().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String title) {
-                showDialog(title);
+                showProgressDialog(title);
             }
         });
         //加载对话框消失
         viewModel.getUC().getDismissDialogEvent().observe(this, new Observer<Void>() {
             @Override
             public void onChanged(@Nullable Void v) {
-                dismissDialog();
+                dismissProgressDialog();
             }
         });
         //跳入新页面
@@ -157,22 +160,31 @@ public abstract class BaseFragment<V extends ViewDataBinding, VM extends BaseVie
         });
     }
 
-    public void showDialog(String title) {
-        if (dialog != null) {
-            dialog = dialog.getBuilder().title(title).build();
-            dialog.show();
-        } else {
-            MaterialDialog.Builder builder = MaterialDialogUtils.showIndeterminateProgressDialog(getActivity(), title, true);
-            dialog = builder.show();
+    /**
+     * @param tip  提示文字
+     * setCancelable(false) 是否触摸取消
+     */
+    public void showProgressDialog(String tip) {
+        if (null != progressDialog){
+            progressDialog.show();
+            return;
         }
+
+        View view = LayoutInflater.from(getActivity()).inflate(R.layout.layout_dialog_progress,null,false);
+        progressDialog = new ProgressLoadDialog(getActivity()).addView(view, 0.3f).setCancelable(false).builder();
+        progressDialog.show();
+        TextView textView = view.findViewById(R.id.dialog_progress_tip);
+        textView.setText(tip);
     }
 
-    public void dismissDialog() {
-        if (dialog != null && dialog.isShowing()) {
-            dialog.dismiss();
+    /**
+     * 关闭正在加载对话框
+     */
+    public void dismissProgressDialog() {
+        if (progressDialog != null) {
+            progressDialog.dismiss();
         }
     }
-
     /**
      * 跳转页面
      *
