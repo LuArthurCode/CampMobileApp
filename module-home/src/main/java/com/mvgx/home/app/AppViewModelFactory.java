@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.mvgx.common.http.Repository;
+import com.mvgx.home.ui.viewmodel.HomePieViewModel;
 import com.mvgx.home.ui.viewmodel.HomeViewModel;
 
 /**
@@ -46,6 +47,8 @@ public class AppViewModelFactory extends ViewModelProvider.NewInstanceFactory {
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
         if (modelClass.isAssignableFrom(HomeViewModel.class)) {
             return (T) new HomeViewModel(mApplication, mRepository);
+        } else if (modelClass.isAssignableFrom(HomePieViewModel.class)) {
+            return (T) new HomePieViewModel(mApplication,mRepository);
         }
 
         throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());

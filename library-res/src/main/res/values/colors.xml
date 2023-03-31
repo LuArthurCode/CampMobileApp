@@ -23,12 +23,22 @@
 
 
     <!--单独的颜色处理-->
-    <color name="color_main_tab_tv">#333333</color>
-    <color name="color_main_tab_tv_pitch">#FF07ABB0</color>
+    <color name="color_main_tab_tv">#FF171718</color>
+
+    <color name="color_main_tab_tv_pitch">#FF171718</color>
+    <color name="color_555">#FF555555</color>
     <color name="color_666">#666666</color>
     <color name="color_999">#999999</color>
     <color name="color_bb0">#07ABB0</color>
     <color name="color_main_tab">#FFFFFF</color>
 
+    <!--Home中圆环的颜色值-->
+    <color name="pie_color_one">#597ef7</color>
+    <color name="pie_color_two">#9254de</color>
+    <color name="pie_color_three">#f759ab</color>
+    <color name="pie_color_four">#36cfc9</color>
+    <color name="pie_color_five">#95de64</color>
+    <color name="pie_color_six">#ffec3d</color>
+    <color name="pie_color_seven">#ff4d4f</color>
 
 </resources>

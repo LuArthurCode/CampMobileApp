@@ -25,8 +25,9 @@
 
 
     <!--单独的颜色处理-->
-    <color name="color_main_tab_tv_black">#FFFFFF</color>
-    <color name="color_main_tab_tv_pitch_black">#FF07ABB0</color>
+    <color name="color_main_tab_tv_black">#FF171718</color>
+    <color name="color_main_tab_tv_pitch_black">#FF171718</color>
+    <color name="color_555_black">#FFFFFFFF</color>
     <color name="color_666_black">#666666</color>
     <color name="color_999_black">#adadad</color>
     <color name="color_bb0_black">#ffffff</color>

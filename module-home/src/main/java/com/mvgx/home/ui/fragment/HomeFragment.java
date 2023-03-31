@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.google.android.material.tabs.TabLayout;
 import com.mvgx.common.adapter.CommonPagerAdapter;
 import com.mvgx.common.base.BaseFragment;
@@ -28,7 +29,6 @@ import com.mvgx.home.ui.viewmodel.HomeViewModel;
 @Route(path = RouterFragmentPath.Home.PAGER_HOME)
 public class HomeFragment extends BaseFragment<HomeFragmentBinding, HomeViewModel> {
 
-    private View mDecorView;
     @Override
     public int initContentView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return R.layout.home_fragment;
@@ -61,6 +61,17 @@ public class HomeFragment extends BaseFragment<HomeFragmentBinding, HomeViewMode
         CommonPagerAdapter pagerAdapter = new CommonPagerAdapter(getChildFragmentManager(), viewModel.mFragments, viewModel.mTitlePager);
         binding.homeViewPager.setAdapter(pagerAdapter);
         binding.homeTabs.setViewPager(binding.homeViewPager);
+        binding.homeTabs.setOnTabSelectListener(new OnTabSelectListener() {
+            @Override
+            public void onTabSelect(int position) {
+
+            }
+
+            @Override
+            public void onTabReselect(int position) {
+
+            }
+        });
     }
 
 

@@ -32,5 +32,13 @@
             android:layout_height="wrap_content">
         </Button>
 
+        <Button
+            binding:onClickCommand="@{meViewModel.onClickDarkCommand}"
+            android:text="暗黑模式"
+            android:textAllCaps="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </Button>
+
     </LinearLayout>
 </layout>

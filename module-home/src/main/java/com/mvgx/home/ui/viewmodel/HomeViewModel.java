@@ -11,6 +11,12 @@ import androidx.fragment.app.Fragment;
 
 import com.auth0.android.jwt.Claim;
 import com.auth0.android.jwt.JWT;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 import com.kennyc.view.MultiStateView;
 import com.mvgx.common.base.BaseViewModel;
 import com.mvgx.common.config.AppConfig;
@@ -27,8 +33,11 @@ import com.mvgx.common.init.utils.SPUtils;
 import com.mvgx.common.init.utils.Utils;
 import com.mvgx.common.request.HomeRequestInfo;
 import com.mvgx.common.response.HomePieResponse;
+import com.mvgx.home.ui.fragment.HomeGraphEntity;
 import com.mvgx.home.ui.fragment.HomePieFragment;
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -44,8 +53,8 @@ import io.reactivex.observers.DisposableObserver;
 public class HomeViewModel extends BaseViewModel<Repository> {
 
     public ObservableField< MultiStateView.ViewState> multiStateView  = new ObservableField<>(MultiStateView.ViewState.CONTENT);
-    public List<Fragment> mFragments;
-    public List<String> mTitlePager;
+    public List<Fragment> mFragments = new ArrayList<>();
+    public List<String> mTitlePager = new ArrayList<>();
 
     public UIChangeObservable uc = new UIChangeObservable();
 
@@ -102,10 +111,13 @@ public class HomeViewModel extends BaseViewModel<Repository> {
                     public void onNext(@NonNull BaseResponse<List<HomePieResponse>> result) {
                         dismissDialog();
                         if (null != result && result.isOk() && null != result.getData() && result.getData().size() > 0){
+                            mFragments.clear();
+                            mTitlePager.clear();
                             for (HomePieResponse homeInfo : result.getData()) {
-                                HomePieFragment homePieFragment = new HomePieFragment();
+                                HomePieFragment homePieFragment = new HomePieFragment(homeInfo);
                                 mFragments.add(homePieFragment);
                                 mTitlePager.add(homeInfo.getTitle());
+
                             }
                             uc.finishRefresh.call();
                         }

@@ -55,16 +55,16 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, BaseViewMode
     private void initFragment() {
         //ARouter拿到多Fragment(这里需要通过ARouter获取，不能直接new,因为在组件独立运行时，宿主app是没有依赖其他组件，所以new不到其他组件的Fragment)
         Fragment homeFragment = (Fragment) ARouter.getInstance().build(RouterFragmentPath.Home.PAGER_HOME).navigation();
-        Fragment workFragment = (Fragment) ARouter.getInstance().build(RouterFragmentPath.Client.PAGER_CLIENT).navigation();
-        Fragment msgFragment = (Fragment) ARouter.getInstance().build(RouterFragmentPath.Assets.PAGER_ASSETS).navigation();
+        Fragment clickFragment = (Fragment) ARouter.getInstance().build(RouterFragmentPath.Client.PAGER_CLIENT).navigation();
+        Fragment tradeFragment = (Fragment) ARouter.getInstance().build(RouterFragmentPath.Assets.PAGER_ASSETS).navigation();
+        Fragment assetsFragment = (Fragment) ARouter.getInstance().build(RouterFragmentPath.Trade.PAGER_TRADE).navigation();
         Fragment meFragment = (Fragment) ARouter.getInstance().build(RouterFragmentPath.Me.PAGER_ME).navigation();
-        Fragment maskFragment = (Fragment) ARouter.getInstance().build(RouterFragmentPath.Trade.PAGER_TRADE).navigation();
         mFragments = new ArrayList<>();
         mFragments.add(homeFragment);
-        mFragments.add(workFragment);
-        mFragments.add(msgFragment);
+        mFragments.add(clickFragment);
+        mFragments.add(tradeFragment);
+        mFragments.add(assetsFragment);
         mFragments.add(meFragment);
-        mFragments.add(maskFragment);
         if (homeFragment != null) {
             //默认选中第一个
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

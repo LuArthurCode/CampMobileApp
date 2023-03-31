@@ -28,4 +28,11 @@ public class MeViewModel extends BaseViewModel<Repository> {
         }
     });
 
+    public BindingCommand onClickDarkCommand = new BindingCommand(new BindingAction() {
+        @Override
+        public void call() {
+            restoreSkin();
+        }
+    });
+
 }

@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 
 import com.mvgx.common.base.BaseViewModel;
 import com.mvgx.common.http.Repository;
+import com.mvgx.common.response.HomePieResponse;
 
 /**
  * @Author Arthur
@@ -13,7 +14,13 @@ import com.mvgx.common.http.Repository;
  */
 public class HomePieViewModel extends BaseViewModel<Repository> {
 
+
+
     public HomePieViewModel(@NonNull Application application, Repository model) {
         super(application, model);
     }
+
+
+
+
 }
