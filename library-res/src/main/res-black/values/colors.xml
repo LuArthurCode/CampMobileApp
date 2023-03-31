@@ -11,6 +11,8 @@
     <color name="color_btn_un_bg_black">#408485</color>
     <color name="material_blue_grey_800_black">#ff37474f</color>
 
+
+    <color name="transparent_black">@android:color/transparent</color>
     <!--换肤颜色处理-->
     <color name="windowBackground_black">#171718</color>
     <color name="color_background_black">#171718</color>
@@ -19,7 +21,7 @@
     <color name="color_E9E9_black">#FFE9E9E9</color>
     <color name="color_AAAA_black">#FFAAAAAA</color>
     <color name="default_textColor_black">#000</color>
-
+    <color name="color_2c32_black">#FF2B2C32</color>
 
 
 

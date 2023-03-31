@@ -132,8 +132,7 @@ public class HomePieFragment extends BaseFragment<HomePieFragmentBinding, HomePi
         // NOTE: The order of the entries when being added to the entries array determines their position around the center of
         // the chart.
         for (int i = 0; i < count; i++) {
-
-            entries.add(new PieEntry(10F, "车型数据"));
+            entries.add(new PieEntry(10F, ""));
         }
 
         PieDataSet dataSet = new PieDataSet(entries, "Election Results");
@@ -143,33 +142,13 @@ public class HomePieFragment extends BaseFragment<HomePieFragmentBinding, HomePi
         dataSet.setSelectionShift(80f);
 
         // add a lot of colors
-
         ArrayList<Integer> colors = new ArrayList<>();
-
-//        colors.add(Color.alpha(com.mvgx.res.R.color.pie_color_one));
-//        colors.add(Color.alpha(com.mvgx.res.R.color.pie_color_two));
-//        colors.add(Color.alpha(com.mvgx.res.R.color.pie_color_three));
-//        colors.add(Color.alpha(com.mvgx.res.R.color.pie_color_four));
-//        colors.add(Color.alpha(com.mvgx.res.R.color.pie_color_five));
-//        colors.add(Color.alpha(com.mvgx.res.R.color.pie_color_six));
-//        colors.add(Color.alpha(com.mvgx.res.R.color.pie_color_seven));
-
-        for (int c : ColorTemplate.VORDIPLOM_COLORS)
-            colors.add(c);
-
-        for (int c : ColorTemplate.JOYFUL_COLORS)
-            colors.add(c);
-
-        for (int c : ColorTemplate.COLORFUL_COLORS)
-            colors.add(c);
-
-        for (int c : ColorTemplate.LIBERTY_COLORS)
-            colors.add(c);
-
-        for (int c : ColorTemplate.PASTEL_COLORS)
-            colors.add(c);
-
-        colors.add(ColorTemplate.getHoloBlue());
+        colors.add(getResources().getColor(com.mvgx.res.R.color.pie_color_two));
+        colors.add(getResources().getColor(com.mvgx.res.R.color.pie_color_three));
+        colors.add(getResources().getColor(com.mvgx.res.R.color.pie_color_four));
+        colors.add(getResources().getColor(com.mvgx.res.R.color.pie_color_five));
+        colors.add(getResources().getColor(com.mvgx.res.R.color.pie_color_six));
+        colors.add(getResources().getColor(com.mvgx.res.R.color.pie_color_seven));
 
         dataSet.setColors(colors);
         dataSet.setSelectionShift(0f);
@@ -178,15 +157,17 @@ public class HomePieFragment extends BaseFragment<HomePieFragmentBinding, HomePi
         dataSet.setValueLinePart1OffsetPercentage(100.f);
         dataSet.setValueLinePart1Length(0.4f);
         dataSet.setValueLinePart2Length(1.2f);
-
+        dataSet.setUsingSliceColorAsValueLineColor(true);
         dataSet.setYValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
 
         //设置虚线中的文字大小
         PieData data = new PieData(dataSet);
         data.setValueFormatter(new PercentFormatter());
-        data.setValueTextSize(11f);
+        data.setValueTextSize(13f);
         data.setValueTextColors(colors);
         binding.chart1.setData(data);
+        binding.chart1.setDrawHoleEnabled(true);
+        binding.chart1.setHoleColor(getResources().getColor(com.mvgx.res.R.color.transparent));
         // undo all highlights
         binding.chart1.highlightValues(null);
         //设置上下边距 来控制圆形的大小

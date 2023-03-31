@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="homePieViewModel"
             type="com.mvgx.home.ui.viewmodel.HomePieViewModel" />
@@ -12,22 +13,41 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-        <com.github.mikephil.charting.charts.PieChart
-            android:id="@+id/chart1"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginStart="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_13"
+            android:layout_marginEnd="@dimen/dp_15"
+            android:layout_marginBottom="@dimen/dp_15"
+            android:background="@drawable/shape_home_pie_view"
             app:layout_constraintBottom_toTopOf="@+id/home_guideline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_marginTop="@dimen/dp_28"
+                android:layout_marginStart="@dimen/dp_15"
+                android:text="@{homePieViewModel.mTotal}"
+                android:textSize="@dimen/sp_20"
+                android:textColor="@color/color_333"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </TextView>
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/chart1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/home_guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintGuide_percent="0.4"
-            android:orientation="horizontal" />
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
