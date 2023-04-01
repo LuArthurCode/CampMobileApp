@@ -7,6 +7,9 @@ import androidx.databinding.ObservableField;
 
 import com.mvgx.common.base.BaseViewModel;
 import com.mvgx.common.http.Repository;
+import com.mvgx.common.init.binding.command.BindingAction;
+import com.mvgx.common.init.binding.command.BindingCommand;
+import com.mvgx.common.init.utils.KLog;
 import com.mvgx.common.response.HomePieResponse;
 
 /**
@@ -23,6 +26,11 @@ public class HomePieViewModel extends BaseViewModel<Repository> {
     }
 
 
-
+    public BindingCommand OnClickUSDCCommand = new BindingCommand(new BindingAction() {
+        @Override
+        public void call() {
+            KLog.d("TAG","选中了");
+        }
+    });
 
 }

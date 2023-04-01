@@ -17,10 +17,15 @@
     <color name="color_background">#FFFFFF</color>
     <color name="color_D9D9">#FFD9D9D9</color>
     <color name="color_ABB0">#FF07ABB0</color>
+    <color name="color_abb0">#1a07abb0</color>
+    <color name="color_1affff">#1affffff</color>
     <color name="color_E9E9">#FFE9E9E9</color>
     <color name="color_AAAA">#FFAAAAAA</color>
+    <color name="color_DDDD">#FFDDDDDD</color>
+    <color name="color_1ADDDD">#1ADDDDDD</color>
     <color name="default_textColor">#000</color>
     <color name="color_2c32">#FFFFFFFF</color>
+    <color name="color_5F5F">#FFF5F5F5</color>
 
 
 
@@ -30,8 +35,8 @@
 
     <color name="color_main_tab_tv_pitch">#FF171718</color>
     <color name="color_555">#FF555555</color>
-    <color name="color_666">#666666</color>
-    <color name="color_999">#999999</color>
+    <color name="color_666">#FF666666</color>
+    <color name="color_999">#FF999999</color>
     <color name="color_bb0">#07ABB0</color>
     <color name="color_main_tab">#FFFFFF</color>
 

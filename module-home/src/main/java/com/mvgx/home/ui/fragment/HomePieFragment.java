@@ -1,7 +1,11 @@
 package com.mvgx.home.ui.fragment;
 
+import static java.security.AccessController.getContext;
+
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -28,10 +32,19 @@ import com.mvgx.home.BR;
 import com.mvgx.home.R;
 import com.mvgx.home.app.AppViewModelFactory;
 import com.mvgx.home.databinding.HomePieFragmentBinding;
+import com.mvgx.home.ui.line.base.AreaChart;
+import com.mvgx.home.ui.line.base.AreaData;
+import com.mvgx.home.ui.line.base.CustomLineData;
+import com.mvgx.home.ui.line.base.DensityUtil;
+import com.mvgx.home.ui.line.base.IFormatterDoubleCallBack;
+import com.mvgx.home.ui.line.base.IFormatterTextCallBack;
+import com.mvgx.home.ui.line.base.XEnum;
 import com.mvgx.home.ui.viewmodel.HomePieViewModel;
 
 import java.lang.reflect.Type;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -42,7 +55,6 @@ import java.util.List;
 public class HomePieFragment extends BaseFragment<HomePieFragmentBinding, HomePieViewModel> {
 
     public HomePieResponse mHomeInfo;
-
 
     /**
      * @param inflater
@@ -90,6 +102,7 @@ public class HomePieFragment extends BaseFragment<HomePieFragmentBinding, HomePi
         initPieData();
     }
 
+    //------------------------------------------------饼状图-------------------------------------------------------------
     private void initPieData() {
         //如果启用此功能，饼图中的值将以百分比形式绘制，而不是使用它们的原始值。然后以百分比形式提供为 IValueFormatter 格式化的值。参数：启用
         binding.chart1.setUsePercentValues(true);
@@ -171,7 +184,7 @@ public class HomePieFragment extends BaseFragment<HomePieFragmentBinding, HomePi
         // undo all highlights
         binding.chart1.highlightValues(null);
         //设置上下边距 来控制圆形的大小
-        binding.chart1.setExtraOffsets(0f, 32f, 0f, 32f);
+        binding.chart1.setExtraOffsets(0f, 10f, 0f, 10f);
 
         binding.chart1.invalidate();
     }

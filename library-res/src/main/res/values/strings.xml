@@ -22,4 +22,8 @@
     <string name="app_language_english" translatable="false">English</string>
     <string name="app_language_chinese" translatable="false">中文</string>
     <string name="app_general_language" translatable="false">Change Language</string>
+
+    <string name="app_home_line_title" >Market</string>
+
+
 </resources>
