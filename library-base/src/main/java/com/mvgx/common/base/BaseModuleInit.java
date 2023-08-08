@@ -4,8 +4,8 @@ import android.app.Application;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.mvgx.common.BuildConfig;
+import com.mvgx.common.init.utils.KLog;
 
-import me.goldze.mvvmhabit.utils.KLog;
 
 /**
  * Created by goldze on 2018/6/21 0021.

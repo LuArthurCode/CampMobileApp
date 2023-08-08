@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_333_black">#FFFFFFFF</color>
+    <color name="viewLineColor_black">#E0E0E0</color>
+    <color name="black_black">#FF000000</color>
+    <color name="white_black">#FFFFFFFF</color>
+    <color name="colorPrimary_black">#FFFFFFFF</color>
+    <color name="md_btn_selected_black">#33969696</color>
+    <color name="color_btn_bg_black">#00aeb2</color>
+    <color name="color_default_black">#FF97E6F0</color>
+    <color name="color_btn_un_bg_black">#408485</color>
+    <color name="material_blue_grey_800_black">#ff37474f</color>
+
+
+    <color name="transparent_black">@android:color/transparent</color>
+    <!--换肤颜色处理-->
+    <color name="windowBackground_black">#171718</color>
+    <color name="color_background_black">#171718</color>
+    <color name="color_D9D9_black">#80FFFFFF</color>
+    <color name="color_ABB0_black">#FF07ABB0</color>
+    <color name="color_E9E9_black">#FFE9E9E9</color>
+    <color name="color_AAAA_black">#FFAAAAAA</color>
+    <color name="default_textColor_black">#000</color>
+    <color name="color_2c32_black">#FF2B2C32</color>
+    <color name="color_5F5F_black">#FF171718</color>
+
+
+
+    <!--单独的颜色处理-->
+    <color name="color_main_tab_tv_black">#FF171718</color>
+    <color name="color_main_tab_tv_pitch_black">#FF171718</color>
+    <color name="color_555_black">#FFFFFFFF</color>
+    <color name="color_666_black">#666666</color>
+    <color name="color_999_black">#adadad</color>
+    <color name="color_bb0_black">#ffffff</color>
+    <color name="color_main_tab_black">#2B2C32</color>
+</resources>

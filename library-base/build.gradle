@@ -23,6 +23,9 @@ android {
             }
         }
     }
+    dataBinding {
+        enabled = true
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -38,19 +41,103 @@ dependencies {
     api rootProject.ext.support["appcompat-v7"]
     //公用资源在base中依赖
     api project(':library-res')
+
     //核心基础库(由于这是例子, 所以这里采用远程依赖的方式, 可根据实际情况自行换成源码依赖，源码地址：https://github.com/goldze/MVVMHabit)
-    api rootProject.ext.dependencies.MVVMHabit
+//    api rootProject.ext.dependencies.MVVMHabit
     //阿里路由框架
     api rootProject.ext.dependencies["arouter-api"]
+    //support
+    api rootProject.ext.support["support-v4"]
+    api rootProject.ext.support["recyclerview-v7"]
+    //rxjava
+    api rootProject.ext.dependencies.rxjava
+    api rootProject.ext.dependencies.rxandroid
+    //rx管理View的生命周期
+    api(rootProject.ext.dependencies.rxlifecycle) {
+        exclude group: 'com.android.support'
+    }
+    api(rootProject.ext.dependencies["rxlifecycle-components"]) {
+        exclude group: 'com.android.support'
+    }
+    //rxbinding
+    api(rootProject.ext.dependencies.rxbinding) {
+        exclude group: 'com.android.support'
+    }
+    //rx权限请求
+    api(rootProject.ext.dependencies.rxpermissions) {
+        exclude group: 'com.android.support'
+    }
+    //network
+    api rootProject.ext.dependencies.okhttp
+    api rootProject.ext.dependencies.retrofit
+    api rootProject.ext.dependencies["converter-gson"]
+    api rootProject.ext.dependencies["adapter-rxjava"]
+    //json解析
+    api rootProject.ext.dependencies.gson
+    //material-dialogs
+    api(rootProject.ext.dependencies["material-dialogs-core"]) {
+        exclude group: 'com.android.support'
+    }
+    api(rootProject.ext.dependencies["material-dialogs-commons"]) {
+        exclude group: 'com.android.support'
+    }
+    //glide图片加载库
+    api (rootProject.ext.dependencies.glide){
+        exclude group: 'com.android.support'
+    }
+    annotationProcessor rootProject.ext.dependencies["glide-compiler"]
+    //recyclerview的databinding套装
+    api(rootProject.ext.dependencies.bindingcollectionadapter) {
+        exclude group: 'com.android.support'
+    }
+    api(rootProject.ext.dependencies["bindingcollectionadapter-recyclerview"]) {
+        exclude group: 'com.android.support'
+    }
+    api(rootProject.ext.dependencies["bindingcollectionadapter-viewpager2"]) {
+        exclude group: 'com.android.support'
+    }
+    //Google LiveData和ViewModel组件
+    api rootProject.ext.dependencies["lifecycle-extensions"]
+    annotationProcessor rootProject.ext.dependencies["lifecycle-compiler"]
+    //main 底部tab
+    //https://github.com/H07000223/FlycoTabLayout/blob/master/README_CN.md
+    api 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+//    implementation project(':third-part-support:flycotablayout')
+    api 'skin.support:flycotablayout:2.1.2'
 
-//    api rootProject.ext.dependencies["appcompat"]
-//
-//    api rootProject.ext.dependencies["material"]
-//
-//    api rootProject.ext.dependencies["androidx-material"]
+    //如果不需要则可以去掉
+    api rootProject.ext.dependencies['AutoSize']
 
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.8.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    api rootProject.ext.dependencies['immersionbar']
 
+    api rootProject.ext.dependencies['multiStateView']
+
+    //配合ConsecutiveScroller 使用
+    api rootProject.ext.dependencies['ToastUtils']
+
+    api rootProject.ext.dependencies['AutoSize']
+
+    api rootProject.ext.dependencies['RefreshView']
+
+    api rootProject.ext.dependencies['material-material']
+
+    api rootProject.ext.dependencies['constraintlayout']
+    // 加密
+    api rootProject.ext.dependencies['CodeCommon']
+    //解析
+    api rootProject.ext.dependencies['Jsonwebtoken']
+
+    /*换肤处理*/
+    api rootProject.ext.dependencies['skin-support']
+    api rootProject.ext.dependencies['skin-appcompat']
+    api rootProject.ext.dependencies['skin-design']
+    api rootProject.ext.dependencies['skin-cardview']
+    api rootProject.ext.dependencies['skin-constraint']
+    /*换肤处理*/
+    //Dialog
+    api rootProject.ext.dependencies['XPopup']
+    //联系人搜索列表
+    api rootProject.ext.dependencies['Wavesidebar']
+    //股票折线图
+    api rootProject.ext.dependencies['MPAndroidChart']
 }

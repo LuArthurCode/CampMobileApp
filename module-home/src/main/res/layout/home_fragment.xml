@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="homeViewModel"
+            type="com.mvgx.home.ui.viewmodel.HomeViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_5F5F"
+        android:orientation="vertical">
+
+        <com.kennyc.view.MultiStateView
+            binding:msv_emptyView="@layout/layout_no_data"
+            binding:msv_errorView="@layout/layout_no_error"
+            binding:msv_viewState="@{homeViewModel.multiStateView}"
+            binding:onClickCommand="@{homeViewModel.stateClickCommand}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!-- 下拉加载刷新页面-->
+            <!--https://github.com/lcodecorex/TwinklingRefreshLayout/blob/master/README_CN.md-->
+            <com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
+                android:id="@+id/open_order_twinklingRefreshLayout"
+                binding:onRefreshCommand="@{homeViewModel.onRefreshCommand}"
+                binding:tr_enable_loadmore="false"
+                binding:tr_head_height="80dp"
+                binding:tr_bottom_height="0dp"
+                layout_behavior="@string/appbar_scrolling_view_behavior"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:background="@drawable/home_gradient_bg" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <com.flyco.tablayout.SlidingTabLayout
+                        android:id="@+id/home_tabs"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        binding:tl_iconHeight="20dp"
+                        binding:tl_iconWidth="20dp"
+                        binding:tl_textsize="@dimen/sp_15"
+                        binding:tl_indicator_width_equal_title="true"
+                        binding:tl_indicator_height="@dimen/dp_0"
+                        binding:tl_textSelectColor="@color/color_333"
+                        binding:tl_textBold="SELECT"
+                        binding:tl_textUnselectColor="@color/color_main_tab_tv_pitch" />
+
+                    <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/home_viewPager"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                </LinearLayout>
+            </com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>
+        </com.kennyc.view.MultiStateView>
+
+    </FrameLayout>
+</layout>

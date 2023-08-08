@@ -1,4 +1,80 @@
 ext {
+    dependencies = [
+            //阿里路由框架
+            'appcompat'                            : 'androidx.appcompat:appcompat:1.2.0',
+            'material'                             : 'com.google.android.material:appcompat:1.8.0',
+            'androidx-material'                    : 'androidx.material:appcompat:2.1.4',
+            "arouter-api"                          : "com.alibaba:arouter-api:1.4.1",
+            "arouter-compiler"                     : "com.alibaba:arouter-compiler:1.2.2",
+
+
+            'material-material'                    : 'com.google.android.material:material:1.2.0',
+            'constraintlayout'                     : 'androidx.constraintlayout:constraintlayout:2.1.4',
+
+            //rxjava
+            "rxjava"                               : "io.reactivex.rxjava2:rxjava:2.2.3",
+            "rxandroid"                            : "io.reactivex.rxjava2:rxandroid:2.1.0",
+            //rx系列与View生命周期同步
+            "rxlifecycle"                          : "com.trello.rxlifecycle2:rxlifecycle:2.2.2",
+            "rxlifecycle-components"               : "com.trello.rxlifecycle2:rxlifecycle-components:2.2.2",
+            //rxbinding
+            "rxbinding"                            : "com.jakewharton.rxbinding2:rxbinding:2.1.1",
+            //rx 6.0权限请求
+            "rxpermissions"                        : "com.github.tbruyelle:rxpermissions:0.10.2",
+            //network
+            "okhttp"                               : "com.squareup.okhttp3:okhttp:3.10.0",
+            "retrofit"                             : "com.squareup.retrofit2:retrofit:2.4.0",
+            "converter-gson"                       : "com.squareup.retrofit2:converter-gson:2.4.0",
+            "adapter-rxjava"                       : "com.squareup.retrofit2:adapter-rxjava2:2.4.0",
+            //glide图片加载
+            "glide"                                : "com.github.bumptech.glide:glide:4.11.0",
+            "glide-compiler"                       : "com.github.bumptech.glide:compiler:4.11.0",
+            //json解析
+            "gson"                                 : "com.google.code.gson:gson:2.8.6",
+            //material-dialogs
+            "material-dialogs-core"                : "com.afollestad.material-dialogs:core:0.9.6.0",
+            "material-dialogs-commons"             : "com.afollestad.material-dialogs:commons:0.9.6.0",
+            //recyclerview的databinding套装
+            "bindingcollectionadapter"             : "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:4.0.0",
+            "bindingcollectionadapter-recyclerview": "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:4.0.0",
+            "bindingcollectionadapter-viewpager2"  : "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-viewpager2:4.0.0",
+            //Google AAC
+            "lifecycle-extensions"                 : "androidx.lifecycle:lifecycle-extensions:2.0.0",
+            "lifecycle-compiler"                   : "androidx.lifecycle:lifecycle-compiler:2.0.0",
+
+            'CodeCommon'                           : 'commons-codec:commons-codec:1.11',
+            //Token  解析
+            'Jsonwebtoken'                         : 'com.auth0.android:jwtdecode:2.0.2',
+
+            //如果不需要则可以去掉
+            //屏幕适配
+            "AutoSize"                             : 'com.github.JessYanCoding:AndroidAutoSize:v1.2.1',
+            // 沉浸式 基础依赖包，必须要依赖
+            "immersionbar"                         : 'com.gyf.immersionbar:immersionbar:3.0.0',
+            //错误页面
+            'multiStateView'                       : 'com.github.Kennyc1012:MultiStateView:2.2.0',
+            // 吐司
+            'ToastUtils'                           : 'com.github.getActivity:ToastUtils:10.5',
+            //屏幕适配
+            "AutoSize"                             : 'com.github.JessYanCoding:AndroidAutoSize:v1.2.1',
+            //网络监听页面
+            'NetStatus'                            : 'com.sunchen:netstatusbus:0.1.5',//网络监听
+            //上划下拉加载刷新
+            'RefreshView'                          : 'com.lcodecorex:tkrefreshlayout:1.0.7',
+            /*换肤控件   Android-skin-support */
+            'skin-support'                         : 'skin.support:skin-support:4.0.5',    // skin-support
+            'skin-appcompat'                       : 'skin.support:skin-support-appcompat:4.0.5',    // skin-support 基础控件支持
+            'skin-design'                          : 'skin.support:skin-support-design:4.0.5',            // skin-support-design material design 控件支持[可选]
+            'skin-cardview'                        : 'skin.support:skin-support-cardview:4.0.5',          // skin-support-cardview CardView 控件支持[可选]
+            'skin-constraint'                      : 'skin.support:skin-support-constraint-layout:4.0.5', // skin-support-constraint-layout ConstraintLayout 控件支持[可选]
+            //Xpopup
+            'XPopup'                               : 'com.github.li-xiaojun:XPopup:2.9.19',
+            //搜索列表
+            'Wavesidebar'                          : 'com.gjiazhe:wavesidebar:1.3',
+
+            'MPAndroidChart'                       : 'com.github.PhilJay:MPAndroidChart:v3.1.0',
+
+    ]
     //android开发版本配置
     android = [
             compileSdkVersion: 33,
@@ -29,14 +105,4 @@ ext {
 
     ]
     //依赖第三方配置
-    dependencies = [
-            //阿里路由框架
-            'appcompat'        : 'androidx.appcompat:appcompat:1.6.1',
-            'material'         : 'com.google.android.material:appcompat:1.8.0',
-            'androidx-material': 'androidx.material:appcompat:2.1.4',
-            "arouter-api"      : "com.alibaba:arouter-api:1.4.1",
-            "arouter-compiler" : "com.alibaba:arouter-compiler:1.2.2",
-            //MVVMHabit
-            "MVVMHabit"        : "com.github.goldze:MVVMHabit:4.0.0",
-    ]
 }

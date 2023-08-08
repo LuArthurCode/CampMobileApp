@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name" translatable="false">Camp</string>
+    <string name="app_item_assets" translatable="false">Assets</string>
+    <string name="app_item_client" translatable="false">Client</string>
+    <string name="app_item_home" translatable="false">Home</string>
+    <string name="app_item_me" translatable="false">Me</string>
+    <string name="app_item_trade" translatable="false">Trade</string>
+    <string name="app_loading">loading...</string>
+    <string name="app_file_is_empty">File is empty</string>
+    <string name="app_transfer_failure">transfer failure</string>
+    <string name="app_unknown_error_occurred">Unknown error occurred</string>
+    <!--splash 页面-->
+    <string name="app_change_skin" translatable="false">Change Skin</string>
+    <string name="splash_content" translatable="false">We provide you with better financial services</string>
+    <string name="splash_title" translatable="false">Welcome to MetaComp</string>
+
+
+    <string name="app_login_title" translatable="false">Welcome to MetaComp</string>
+    <string name="app_login_name_hit" translatable="false">Please enter account </string>
+    <string name="app_login_ps_hit" translatable="false">Please enter password  </string>
+    <string name="app_login_btn" translatable="false">Login</string>
+    <string name="app_language_english" translatable="false">English</string>
+    <string name="app_language_chinese" translatable="false">中文</string>
+    <string name="app_general_language" translatable="false">Change Language</string>
+
+    <string name="app_home_line_title" >Market</string>
+
+
+</resources>

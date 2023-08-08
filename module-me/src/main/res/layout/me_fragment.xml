@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="meViewModel"
+            type="com.mvgx.me.ui.viewmodel.MeViewModel" />
+    </data>
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="Me"
+            android:gravity="center"
+            android:textSize="@dimen/sp_20"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TextView>
+
+
+        <Button
+            binding:onClickCommand="@{meViewModel.onClickCommand}"
+            android:text="语言"
+            android:textAllCaps="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </Button>
+
+        <Button
+            binding:onClickCommand="@{meViewModel.onClickDarkCommand}"
+            android:text="暗黑模式"
+            android:textAllCaps="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </Button>
+
+    </LinearLayout>
+</layout>

@@ -21,6 +21,8 @@ android {
                     exclude 'src/debug/*'
                 }
             }
+            res.srcDirs = ['src/main/res',
+                           'src/main/res-black']
         }
     }
     buildTypes {

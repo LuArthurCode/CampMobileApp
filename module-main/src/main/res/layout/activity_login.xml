@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="loginViewModel"
+            type="com.mvgx.main.ui.viewmodel.LoginViewModel" />
+    </data>
+
+    <ScrollView
+        android:id="@+id/login_scroll_view"
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_background"
+        android:paddingStart="@dimen/dp_40"
+        android:paddingEnd="@dimen/dp_40">
+
+        <LinearLayout
+            android:fitsSystemWindows="true"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="150dp"
+                android:textStyle="bold"
+                android:text="@string/app_login_title"
+                android:textColor="@color/color_333"
+                android:textSize="@dimen/sp_24" />
+
+            <EditText
+                android:id="@+id/login_user_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:background="@null"
+                android:hint="@string/app_login_name_hit"
+                android:minHeight="48dp"
+                android:text="@{loginViewModel.userName}"
+                android:textColor="@color/color_333"
+                android:textColorHint="@color/color_D9D9"
+                android:textCursorDrawable="@drawable/input_textcursor_color"
+                android:textSize="@dimen/sp_16" />
+
+            <View
+                android:background="@color/color_E9E9"
+                android:layout_marginTop="@dimen/dp_5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+
+            <EditText
+                android:id="@+id/login_pass_word"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:background="@null"
+                android:hint="@string/app_login_ps_hit"
+                android:minHeight="48dp"
+                android:text="@{loginViewModel.password}"
+                android:textColor="@color/color_333"
+                android:textColorHint="@color/color_D9D9"
+                android:textCursorDrawable="@drawable/input_textcursor_color"
+                android:textSize="@dimen/sp_16" />
+            <View
+                android:background="@color/color_E9E9"
+                android:layout_marginTop="@dimen/dp_5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+            <Button
+                android:id="@+id/login_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:background="@{loginViewModel.onUnClickLogin == true?  @drawable/shape_10_cyan_bg_unclick_view: @drawable/shape_10_cyan_bg_click_view}"
+                android:text="@string/app_login_btn"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                binding:onClickCommand="@{loginViewModel.loginOnClickCommand}"
+                android:textSize="@dimen/sp_16"
+                binding:setUnClickable="@{loginViewModel.onUnClickLogin}" />
+        </LinearLayout>
+    </ScrollView>
+
+</layout>

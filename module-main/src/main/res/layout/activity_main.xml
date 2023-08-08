@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mvgx.common.base.BaseViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_above="@+id/bottom_view"
+            android:layout_weight="1" />
+
+        <View style="@style/ViewLineStyle" />
+
+        <com.flyco.tablayout.CommonTabLayout
+            android:id="@+id/tl_2"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/color_background"
+            tl:tl_iconHeight="20dp"
+            tl:tl_iconWidth="20dp"
+            tl:tl_textSelectColor="@color/color_main_tab_tv_pitch"
+            tl:tl_textUnselectColor="@color/color_main_tab_tv"
+            tl:tl_textsize="12sp" />
+
+    </LinearLayout>
+</layout>
